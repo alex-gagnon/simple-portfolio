@@ -1,6 +1,7 @@
 import './Portfolio.css';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Automation from './pages/Automation';
+import Home from './pages/Home';
 
 
 function Portfolio() {
@@ -17,7 +18,8 @@ function Portfolio() {
         <main className="portfolio-main">
           <Routes>
             <Route path="/">
-              <Route index element={<Automation />} />
+              <Route index element={<Home />} />
+              <Route path="automation" element={<Automation />} />
             </Route>
           </Routes>
         </main>
