@@ -56,7 +56,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/index.tsx",
-      "!reportWebVitals.ts"
+      "!src/reportWebVitals.ts"
     ]
   }
 }
