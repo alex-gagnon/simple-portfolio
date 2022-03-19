@@ -16,9 +16,9 @@ export const ProjectCard = ({title, description, demo, github, stack}: Project) 
             <div className='project-card'>
                 <h2>{title}</h2>
                 <p>{description}</p>
-                <button><a href="{demo}">Demo </a></button>
+                <button><a href={demo}>Demo </a></button>
 
-                <button><a href="{github}">Github </a></button>
+                <button><a href={github}>Github </a></button>
                 <p>{stack}</p>
             </div>
         </>
