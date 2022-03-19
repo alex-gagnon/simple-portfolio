@@ -1,16 +1,22 @@
 import './App.css';
-import Home from './pages/home';
-
-const fs = require('fs')
-
-const cert = fs.readFileSync('../ssl/alex-gagnon_com.csr')
-const key = fs.readFileSync('../ssl/alex-gagnon_com.key')
+import logo from './logo.svg';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Home />
+        <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
       </header>
     </div>
   );
