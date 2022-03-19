@@ -1,5 +1,5 @@
 [![Simple Portfolio CI/CD](https://github.com/alex-gagnon/simple-portfolio/actions/workflows/node.js.yml/badge.svg)](https://github.com/alex-gagnon/simple-portfolio/actions/workflows/node.js.yml)
-[![codecov](https://app.codecov.io/gh/alex-gagnon/simple-portfolio/branch/main/graph/badge.svg)](https://app.codecov.io/gh/alex-gagnon/simple-portfolio)
+[![codecov](https://codecov.io/gh/alex-gagnon/simple-portfolio/branch/main/graph/badge.svg)](https://codecov.io/gh/alex-gagnon/simple-portfolio)
 
 ## Simple Portfolio
 
