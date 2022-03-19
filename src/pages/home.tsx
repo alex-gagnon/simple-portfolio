@@ -1,4 +1,10 @@
-import { FC } from "react"
+import React, { Component } from "react"
 
-const Home: FC = () => <p>Site Under Construction</p>
-export default Home
+
+export default class Home extends Component {
+    render() {
+        return (
+            <p>Site under construction</p>
+        )
+    }
+}
