@@ -8,12 +8,14 @@ function Portfolio() {
   return (
     <div className="container">
       <Router>
-        <header>
+        <header className="portfolio-header">
           <p>Navbar placeholder</p>
-          <Link to="/">Home | </Link>
-          <Link to="automation">Automation | </Link>
+          <div>
+            <Link to="/" className="portfolio-link">Home | </Link>
+            <Link to="automation" className="portfolio-link">Automation | </Link>
+          </div>
         </header>
-        <main>
+        <main className="portfolio-main">
           <Routes>
             <Route path="/">
               <Route index element={<Home />} />
