@@ -12,12 +12,14 @@ function Portfolio() {
           <p>Navbar placeholder</p>
           <a href="/">Home | </a>
 
-          <a href="/automation">Automation | </a>
+          <a href="automation">Automation | </a>
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/automation" element={<Automation />} />
+            <Route path="/">
+              <Route index element={<Home />} />
+              <Route path="automation" element={<Automation />} />
+            </Route>
           </Routes>
         </main>
       </Router>
