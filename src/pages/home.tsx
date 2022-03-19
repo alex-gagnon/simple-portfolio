@@ -1,4 +1,4 @@
 import { FC } from "react"
 
-const Home: FC = () => <p>Home</p>
+const Home: FC = () => <p>Site Under Construction</p>
 export default Home
