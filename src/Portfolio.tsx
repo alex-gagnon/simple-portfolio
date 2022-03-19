@@ -1,6 +1,6 @@
 import './Portfolio.css';
 import Home from './pages/home';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Automation from './pages/Automation';
 
 
@@ -10,9 +10,9 @@ function Portfolio() {
       <Router>
         <header>
           <p>Navbar placeholder</p>
-          <a href="/">Home | </a>
+          <Link to="/">Home |</Link>
 
-          <a href="automation">Automation | </a>
+          <Link to="automation">Automation | </Link>
         </header>
         <main>
           <Routes>
