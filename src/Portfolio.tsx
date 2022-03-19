@@ -1,20 +1,21 @@
 import './Portfolio.css';
-import Home from './pages/home';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Automation from './pages/Automation';
+import Home from './pages/Home';
 
 
 function Portfolio() {
   return (
     <div className="container">
       <Router>
-        <header>
+        <header className="portfolio-header">
           <p>Navbar placeholder</p>
-          <Link to="/">Home |</Link>
-
-          <Link to="automation">Automation | </Link>
+          <div>
+            <Link to="/" className="portfolio-link">Home | </Link>
+            <Link to="automation" className="portfolio-link">Automation | </Link>
+          </div>
         </header>
-        <main>
+        <main className="portfolio-main">
           <Routes>
             <Route path="/">
               <Route index element={<Home />} />
