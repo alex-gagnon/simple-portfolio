@@ -1,4 +1,7 @@
+import { Button, Link } from '@mui/material';
 import React from 'react';
+import { TEXT_COLOR } from '../data/constants';
+
 
 
 export interface Project{
@@ -16,9 +19,9 @@ export const ProjectCard = ({title, description, demo, github, stack}: Project) 
             <div className='project-card'>
                 <h2>{title}</h2>
                 <p>{description}</p>
-                <button><a href={demo}>Demo </a></button>
+                <Button variant='contained'><Link href={demo} color={TEXT_COLOR}>Demo </Link></Button>
 
-                <button><a href={github}>Github </a></button>
+                <Button variant='contained'><Link href={github} color={TEXT_COLOR}>Github </Link></Button>
                 <p>{stack}</p>
             </div>
         </>
