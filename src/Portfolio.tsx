@@ -11,19 +11,19 @@ import { ThemeProvider } from '@mui/material';
 function Portfolio() {
   return (
     <div className="container">
-      <Router>
-        <ThemeProvider theme={theme}>
-          <Header  />
-          <main className="portfolio-main">
-            <Routes>
-              <Route path="/">
-                <Route index element={<Home {...AboutMe} />} />
-                <Route path="projects" element={<Projects projects={PROJECTS} />} />
-              </Route>
-            </Routes>
-          </main>
-        </ThemeProvider>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+            <Header  />
+            <main className="portfolio-main">
+              <Routes>
+                <Route path="/">
+                  <Route index element={<Home {...AboutMe} />} />
+                  <Route path="projects" element={<Projects projects={PROJECTS} />} />
+                </Route>
+              </Routes>
+            </main>
+        </Router>
+      </ThemeProvider>
     </div>
   );
 }

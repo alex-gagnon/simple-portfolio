@@ -1,7 +1,5 @@
-import { ThemeProvider } from '@emotion/react';
 import { AppBar, Box, Button, Container, IconButton, Link, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import React from 'react';
-import { theme } from '../../theme';
 
 
 const pages = ['Projects']

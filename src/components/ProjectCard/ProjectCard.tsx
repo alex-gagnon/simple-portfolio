@@ -1,6 +1,5 @@
-import { Button, ThemeProvider } from '@mui/material';
+import { Button } from '@mui/material';
 import React, { FC } from 'react';
-import { theme } from '../../theme';
 
 
 
