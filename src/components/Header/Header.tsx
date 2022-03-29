@@ -5,7 +5,6 @@ import { theme } from '../../theme';
 
 
 const pages = ['Projects']
-const iconSx = { mr: 2 }
 
 
 export const Header = () => {
@@ -14,10 +13,11 @@ export const Header = () => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     }
+    
     return (
         <ThemeProvider theme={theme}>
-            <AppBar>
-                <Container maxWidth='lg'>
+            <AppBar sx={{ bgcolor: 'sleepy.dark' }}>
+                <Container maxWidth={false}>
                     <Toolbar>
                         <Typography
                             variant="h6"
@@ -34,7 +34,7 @@ export const Header = () => {
                                 edge="start"
                                 color="inherit"
                                 aria-label="menu"
-                                sx={iconSx}
+                                sx={{ mr: 2 }}
                             >
                                 <MenuItem />
                             </IconButton>
