@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ProjectCard } from './ProjectCard';
+import { MockTheme } from '../../MockTheme';
 
 
 const testProjectCard = {
@@ -11,33 +12,54 @@ const testProjectCard = {
     stack: 'test stack'
 }
 
-beforeEach(() => {
-    render(<ProjectCard {...testProjectCard} />)
+describe('<ProjectCard />', () => {
+    test('renders title', () => {
+    render(
+        <MockTheme>
+          <ProjectCard {...testProjectCard} />
+        </MockTheme>
+    )
+    const heading = screen.getByRole('heading')
+    expect(heading).toHaveTextContent(testProjectCard.title)
+  });
+
+  test('renders description', () => {
+    render(
+        <MockTheme>
+          <ProjectCard {...testProjectCard} />
+        </MockTheme>
+    )
+    const text = screen.getByText(testProjectCard.description)
+    expect(text).toBeInTheDocument()
+  });
+
+  test('renders demo', () => {
+    render(
+        <MockTheme>
+          <ProjectCard {...testProjectCard} />
+        </MockTheme>
+    )
+    const text = screen.getByText('Demo')
+    expect(text).toBeInTheDocument()
+  });
+
+  test('renders github', () => {
+    render(
+        <MockTheme>
+          <ProjectCard {...testProjectCard} />
+        </MockTheme>
+    )
+    const text = screen.getByText('Github')
+    expect(text).toBeInTheDocument()
+  });
+
+  test('renders stack', () => {
+    render(
+        <MockTheme>
+          <ProjectCard {...testProjectCard} />
+        </MockTheme>
+    )
+    const text = screen.getByText(testProjectCard.stack)
+    expect(text).toBeInTheDocument()
+  });
 })
-
-test('renders title', () => {
-  const text = screen.getByText(testProjectCard.title)
-  expect(text).toBeInTheDocument()
-});
-
-test('renders description', () => {
-  const text = screen.getByText(testProjectCard.description)
-  expect(text).toBeInTheDocument()
-});
-
-test('renders demo', () => {
-  const text = screen.getByText('Demo')
-  expect(text).toBeInTheDocument()
-  expect(text.closest('a')).toHaveAttribute('href', testProjectCard.demo)
-});
-
-test('renders github', () => {
-  const text = screen.getByText('Github')
-  expect(text).toBeInTheDocument()
-  expect(text.closest('a')).toHaveAttribute('href', testProjectCard.github)
-});
-
-test('renders stack', () => {
-  const text = screen.getByText(testProjectCard.stack)
-  expect(text).toBeInTheDocument()
-});

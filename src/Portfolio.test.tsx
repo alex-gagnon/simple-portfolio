@@ -1,8 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme'
 import Portfolio from './Portfolio';
+import { MockTheme } from './MockTheme';
+import { render } from '@testing-library/react';
 
 
 test('renders without crashing', () => {
-  shallow(<Portfolio />)
+  render(
+    <MockTheme>      
+      <Portfolio />
+    </MockTheme>
+  )
 })

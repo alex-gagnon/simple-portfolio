@@ -1,6 +1,5 @@
-import { Box, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { FC } from "react"
-import { theme } from "../../theme";
 
 
 interface AboutProps {
@@ -12,8 +11,7 @@ interface AboutProps {
 
 export const Home: FC<AboutProps> = ({title, heading, subtitle, text}: AboutProps) => {
     return (
-    <ThemeProvider theme={theme}>
-        <Box color='sleepy.main'>
+        <Box color='sleepyText.main'>
             <div className="about-me title primary_text">
                 {title}
             </div>
@@ -27,6 +25,5 @@ export const Home: FC<AboutProps> = ({title, heading, subtitle, text}: AboutProp
                 {text}
             </div>
         </Box>
-    </ThemeProvider>
     )
 }
