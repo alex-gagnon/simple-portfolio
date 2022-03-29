@@ -5,13 +5,15 @@ const { palette } = createTheme()
 
 export const theme = createTheme({
     palette: {
-        sleepy: palette.augmentColor({
+        sleepyText: palette.augmentColor({
             color: {
-                dark: '#051622',
-                main: '#deb992',
-                contrastText: '#1ba098'
+                main: '#deb992'
             } 
         }),
+
+        sleepyBackground: {
+            main: '#051622',
+        },
 
         sleepyButton: palette.augmentColor({
             color: {
@@ -24,11 +26,13 @@ export const theme = createTheme({
 
 declare module "@mui/material/styles" {
     interface Palette {
-        sleepy: { 
-            dark: string
+        sleepyText: {
             main: string
-            contrastText: string
         };
+
+        sleepyBackground: {
+            main: string
+        }
         
         sleepyButton: {
             main: string
@@ -36,11 +40,13 @@ declare module "@mui/material/styles" {
     }
 
     interface PaletteOptions {
-        sleepy: {
-            dark: string
+        sleepyText: {
             main: string
-            contrastText: string
         };
+
+        sleepyBackground: {
+            main: string
+        }
         
         sleepyButton: {
             main: string
@@ -48,14 +54,27 @@ declare module "@mui/material/styles" {
     }
 }
 
-declare module "@mui/material/Box" {
-    interface BoxPropsColorOverrides {
-        sleepy: true;
+
+declare module '@mui/material/AppBar' {
+    interface AppBarPropsColorOverrides {
+        sleepyBackground: true
+        sleepyButton: true;
+        sleepyText: true;
     }
 }
 
-declare module "@mui/material/Button" {
-    interface ButtonPropsColorOverrides {
+declare module '@mui/material/Box' {
+    interface BoxPropsColorOverrides {
+        sleepyBackground: true
         sleepyButton: true;
+        sleepyText: true;
+    }
+}
+
+declare module '@mui/material/Button' {
+    interface ButtonPropsColorOverrides {
+        sleepyBackground: true
+        sleepyButton: true;
+        sleepyText: true;
     }
 }

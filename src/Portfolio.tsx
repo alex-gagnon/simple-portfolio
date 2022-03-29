@@ -4,12 +4,15 @@ import { Home, Projects } from './pages';
 import { Header } from './components/Header/Header';
 import { PROJECTS } from './data/projects';
 import { AboutMe } from './data/about_me';
+import { theme } from './theme';
+import { ThemeProvider } from '@mui/material';
 
 
 function Portfolio() {
   return (
     <div className="container">
       <Router>
+        <ThemeProvider theme={theme}>
           <Header  />
           <main className="portfolio-main">
             <Routes>
@@ -19,6 +22,7 @@ function Portfolio() {
               </Route>
             </Routes>
           </main>
+        </ThemeProvider>
       </Router>
     </div>
   );

@@ -15,15 +15,13 @@ export interface Project{
 
 export const ProjectCard: FC<Project> = ({title, description, demo, github, stack}: Project) => {
     return (
-        <ThemeProvider theme={theme}>
-            <div className='project-card'>
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <Button href={demo} color="sleepyButton">Demo </Button>
+        <div className='project-card'>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <Button href={demo} color="sleepyButton">Demo </Button>
 
-                <Button href={github} color="sleepyButton">Github </Button>
-                <p>{stack}</p>
-            </div>
-        </ThemeProvider>
+            <Button href={github} color="sleepyButton">Github </Button>
+            <p>{stack}</p>
+        </div>
     )
 }
