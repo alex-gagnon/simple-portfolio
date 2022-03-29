@@ -1,10 +1,12 @@
-import React, { Component } from "react"
+import React, { FC } from "react"
 
 
-export default class Home extends Component {
-    render() {
-        return (
-            <p>Site under construction</p>
-        )
-    }
+interface Props {
+    about: String
+}
+
+export const Home: FC<Props> = ({ about }: Props) => {
+    return (
+        <p>{about}</p>
+    )
 }

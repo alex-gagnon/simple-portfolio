@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, FC } from 'react'
 import {ProjectCard, Project} from '../components/ProjectCard'
-import { projects } from '../data/projects'
 
 
-export default class Automation extends Component {
+interface Props {
+    projects: Project[]
+}
 
-    renderProjects = () => {
+
+export const Automation: FC<Props> = ({ projects }: Props) => {
+    const renderProjects = () => {
         return projects.map((project: Project) => <ProjectCard
                     key={project.title}
                     title={project.title} 
@@ -15,11 +18,10 @@ export default class Automation extends Component {
                     stack={project.stack} />
                 )
     }
-    render() {
-        return (
-            <>
-            {this.renderProjects()}
-            </>
-        )
-    }
+
+    return (
+        <>
+        {renderProjects()}
+        </>
+    )
 }
