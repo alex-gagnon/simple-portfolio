@@ -10,7 +10,7 @@ interface AboutProps {
     text: string;
 }
 
-export const Home: FC<AboutProps> = ({title, heading, subtitle, text}) => {
+export const Home: FC<AboutProps> = ({title, heading, subtitle, text}: AboutProps) => {
     return (
     <ThemeProvider theme={theme}>
         <Box color='sleepy.main'>
