@@ -4,16 +4,6 @@ import { Header } from './Header';
 import { MockTheme } from '../../MockTheme';
 
 
-test('renders logo', () => {
-  render(
-    <MockTheme>
-      <Header />
-    </MockTheme>
-  )
-  const logoText = screen.getAllByText(/logo/i)
-  expect(logoText).toHaveLength(2)
-});
-
 test('renders home', () => {
   render(
     <MockTheme>

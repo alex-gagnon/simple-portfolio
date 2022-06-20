@@ -1,31 +1,22 @@
-import './Portfolio.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import { Home, Projects } from './pages';
 import { Header } from './components/Header/Header';
-import { PROJECTS } from './data/projects';
-import { AboutMe } from './data/about_me';
 import { theme } from './theme';
-import { ThemeProvider } from '@mui/material';
+import { Container, CssBaseline, ThemeProvider } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import './Portfolio.scss';
+import { ParticlesComponent } from './components';
 
 
-function Portfolio() {
-  return (
-    <div className="container">
-      <ThemeProvider theme={theme}>
-        <Router>
-            <Header  />
-            <main className="portfolio-main">
-              <Routes>
-                <Route path="/">
-                  <Route index element={<Home {...AboutMe} />} />
-                  <Route path="projects" element={<Projects projects={PROJECTS} />} />
-                </Route>
-              </Routes>
-            </main>
-        </Router>
-      </ThemeProvider>
-    </div>
-  );
+const Portfolio = () => {
+    return (
+        <ThemeProvider theme={theme}>
+            <ParticlesComponent />
+            <Header />
+            <Container component="main" maxWidth="lg" sx={{ position: 'relative' }}>
+                <CssBaseline />
+                <Outlet />
+            </Container>
+        </ThemeProvider>
+    );
 }
 
 export default Portfolio;

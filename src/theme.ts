@@ -12,7 +12,8 @@ export const theme = createTheme({
         }),
 
         sleepyBackground: {
-            main: '#051622',
+            main: '#0C2B46',
+            secondary: '#051622'
         },
 
         sleepyButton: palette.augmentColor({
@@ -46,6 +47,7 @@ declare module "@mui/material/styles" {
 
         sleepyBackground: {
             main: string
+            secondary?: string
         }
         
         sleepyButton: {

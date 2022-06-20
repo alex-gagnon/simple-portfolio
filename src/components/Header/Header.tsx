@@ -2,7 +2,8 @@ import { AppBar, Box, Button, Container, IconButton, Link, Menu, MenuItem, Toolb
 import React from 'react';
 
 
-const pages = ['Projects']
+const pages = ['Projects'];
+const buttonFontSize = 18;
 
 
 export const Header = () => {
@@ -13,16 +14,16 @@ export const Header = () => {
     }
     
     return (
-        <AppBar sx={{ bgcolor: 'sleepyBackground.main' }}>
+        <AppBar position='relative' sx={{ bgcolor: 'transparent' }}>
             <Container maxWidth={false}>
                 <Toolbar>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        sx={{ mr: 5, display: { xs: 'none', md: 'flex' } }}
                     >
-                    LOGO
+                        <img src={`${process.env.PUBLIC_URL}/logos/android-chrome-192x192.png`} alt="Alex Gagnon" height={50} width={55}/>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -75,7 +76,7 @@ export const Header = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                    LOGO
+                        <img src={`${process.env.PUBLIC_URL}/logos/android-chrome-192x192.png`} alt="Alex Gagnon" height={45} width={50}/>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Button
@@ -83,7 +84,7 @@ export const Header = () => {
                                 onClick={handleCloseNavMenu}
                                 href='/'
                                 color='sleepyButton'
-                                sx={{ my: 2, display: 'block' }}
+                                sx={{ my: 2, display: 'block', fontSize: buttonFontSize }}
                             >
                                 Home
                         </Button>
@@ -93,7 +94,7 @@ export const Header = () => {
                             onClick={handleCloseNavMenu}
                             href={page.toLowerCase()}
                             color='sleepyButton'
-                            sx={{ my: 2, display: 'block' }}
+                            sx={{ my: 2, display: 'block', fontSize: buttonFontSize }}
                         >
                             {page}
                         </Button>

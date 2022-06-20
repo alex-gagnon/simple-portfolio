@@ -1,29 +1,22 @@
-import { Box } from "@mui/material";
-import React, { FC } from "react"
+import { Box, Button, Typography } from "@mui/material";
+import React from "react";
+import "./Home.scss";
 
 
-interface AboutProps {
-    title: string;
-    heading: string;
-    subtitle: string;
-    text: string;
-}
-
-export const Home: FC<AboutProps> = ({title, heading, subtitle, text}: AboutProps) => {
+export const Home = () => {
     return (
-        <Box color='sleepyText.main'>
-            <div className="about-me title primary_text">
-                {title}
-            </div>
-            <div className="about-me heading primary_text">
-                {heading}
-            </div>
-            <div className="about-me subtitle primary_text">
-                {subtitle}
-            </div>
-            <div className="about-me text primary_text">
-                {text}
-            </div>
+        <Box minHeight='80vh' color='sleepyText.main' sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Box minHeight='25vh' sx={{ display: 'inherit', flexDirection: 'inherit', justifyContent: 'space-between', alignItems: 'inherit' }}>
+                <Typography component='h1' variant='h2'>
+                    Hey there, I'm <span style={{ fontWeight: "bold" }}>Alex Gagnon</span>.
+                </Typography>
+                <Typography component='h2' variant='h3'>
+                    I'm a software engineer that specializes in developing automation frameworks in Python for UI and Integration level testing.
+                </Typography>
+                <Button variant='outlined' href='/projects' size='large' color='sleepyText' sx={{ fontSize: 18 }}>
+                    View my work
+                </Button>
+            </Box>
         </Box>
     )
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { ProjectCard } from './ProjectCard';
+import { Card } from './Card';
 import { MockTheme } from '../../MockTheme';
 
 
-const testProjectCard = {
+const testCard = {
     title: 'test title',
     description: 'test description',
     demo: 'test demo',
@@ -16,27 +16,27 @@ describe('<ProjectCard />', () => {
     test('renders title', () => {
     render(
         <MockTheme>
-          <ProjectCard {...testProjectCard} />
+          <Card {...testCard} />
         </MockTheme>
     )
     const heading = screen.getByRole('heading')
-    expect(heading).toHaveTextContent(testProjectCard.title)
+    expect(heading).toHaveTextContent(testCard.title)
   });
 
   test('renders description', () => {
     render(
         <MockTheme>
-          <ProjectCard {...testProjectCard} />
+          <Card {...testCard} />
         </MockTheme>
     )
-    const text = screen.getByText(testProjectCard.description)
+    const text = screen.getByText(testCard.description)
     expect(text).toBeInTheDocument()
   });
 
   test('renders demo', () => {
     render(
         <MockTheme>
-          <ProjectCard {...testProjectCard} />
+          <Card {...testCard} />
         </MockTheme>
     )
     const text = screen.getByText('Demo')
@@ -46,7 +46,7 @@ describe('<ProjectCard />', () => {
   test('renders github', () => {
     render(
         <MockTheme>
-          <ProjectCard {...testProjectCard} />
+          <Card {...testCard} />
         </MockTheme>
     )
     const text = screen.getByText('Github')
@@ -56,10 +56,10 @@ describe('<ProjectCard />', () => {
   test('renders stack', () => {
     render(
         <MockTheme>
-          <ProjectCard {...testProjectCard} />
+          <Card {...testCard} />
         </MockTheme>
     )
-    const text = screen.getByText(testProjectCard.stack)
+    const text = screen.getByText(testCard.stack)
     expect(text).toBeInTheDocument()
   });
 })

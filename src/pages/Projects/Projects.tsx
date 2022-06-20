@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React, { FC } from 'react'
-import {ProjectCard, Project} from '../../components'
+import {Card, Project} from '../../components'
 
 
 interface Props {
@@ -12,7 +12,7 @@ export const Projects: FC<Props> = ({ projects }: Props) => {
     const renderProjects = () => {
         return (
             <Box color='sleepyText.main'>
-                {projects.map((project: Project) => <ProjectCard
+                {projects.map((project: Project) => <Card
                         key={project.title}
                         title={project.title} 
                         description={project.description} 
