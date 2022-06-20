@@ -1,3 +1,4 @@
 export { Header } from './Header/Header';
-export { ProjectCard } from './ProjectCard/ProjectCard';
-export type { Project } from './ProjectCard/ProjectCard';
+export { Card } from './Card/Card';
+export { ParticlesComponent } from './ParticlesComponent/ParticlesComponent';
+export type { Project } from './Card/Card';

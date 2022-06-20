@@ -12,9 +12,9 @@ export interface Project{
 }
 
 
-export const ProjectCard: FC<Project> = ({title, description, demo, github, stack}: Project) => {
+export const Card: FC<Project> = ({title, description, demo, github, stack}: Project) => {
     return (
-        <div className='project-card'>
+        <div className='card'>
             <h2>{title}</h2>
             <p>{description}</p>
             <Button href={demo} color="sleepyButton">Demo </Button>
