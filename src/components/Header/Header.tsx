@@ -1,5 +1,8 @@
-import { AppBar, Box, Button, Container, IconButton, Link, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, Container, IconButton, Link, Menu, MenuItem, Toolbar, Typography, Tooltip } from '@mui/material';
 import React from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
 
 
 const pages = ['Projects'];
@@ -12,7 +15,7 @@ export const Header = () => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     }
-    
+
     return (
         <AppBar position='relative' sx={{ bgcolor: 'transparent' }}>
             <Container maxWidth={false}>
@@ -61,7 +64,7 @@ export const Header = () => {
                             </Typography>
                         </MenuItem>
 
-                        {pages.map((page) => (                          
+                        {pages.map((page) => (
                             <MenuItem key={page} onClick={handleCloseNavMenu}>
                             <Typography textAlign="center">
                                 <Link href={page.toLowerCase()}>{page}</Link>
@@ -99,6 +102,57 @@ export const Header = () => {
                             {page}
                         </Button>
                         ))}
+                    </Box>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+                        <Tooltip title="GitHub">
+                            <IconButton
+                                component="a"
+                                href="https://github.com/alex-gagnon"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                size="small"
+                                sx={{
+                                    color: '#1ba098',
+                                    '&:hover': {
+                                        color: '#deb992'
+                                    }
+                                }}
+                            >
+                                <GitHubIcon />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="LinkedIn">
+                            <IconButton
+                                component="a"
+                                href="https://www.linkedin.com/in/agagnon313/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                size="small"
+                                sx={{
+                                    color: '#1ba098',
+                                    '&:hover': {
+                                        color: '#deb992'
+                                    }
+                                }}
+                            >
+                                <LinkedInIcon />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Email">
+                            <IconButton
+                                component="a"
+                                href="mailto:alexgagnon227@gmail.com"
+                                size="small"
+                                sx={{
+                                    color: '#1ba098',
+                                    '&:hover': {
+                                        color: '#deb992'
+                                    }
+                                }}
+                            >
+                                <EmailIcon />
+                            </IconButton>
+                        </Tooltip>
                     </Box>
                 </Toolbar>
             </Container>
