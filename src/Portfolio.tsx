@@ -12,7 +12,7 @@ const Portfolio = () => {
         <ThemeProvider theme={theme}>
             <ParticlesComponent />
             <Header />
-            <Container component="main" maxWidth="lg" sx={{ position: 'relative' }}>
+            <Container component="main" maxWidth="xl" sx={{ position: 'relative', px: { xs: 2, sm: 3, md: 5, lg: 8 } }}>
                 <CssBaseline />
                 <Outlet />
             </Container>

@@ -30,18 +30,16 @@ export const Home = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center',
+                alignItems: { xs: 'center', lg: 'flex-start' },
+                textAlign: { xs: 'center', lg: 'left' },
                 minHeight: '60vh',
-                maxWidth: '860px',
-                mx: 'auto',
-                px: 3,
-                mb: 6,
+                width: '100%',
+                mb: 8,
                 '&::before': {
                     content: '""',
                     position: 'absolute',
                     top: '50%',
-                    left: '50%',
+                    left: { xs: '50%', lg: '30%' },
                     transform: 'translate(-50%, -50%)',
                     width: '700px',
                     height: '500px',
@@ -50,55 +48,70 @@ export const Home = () => {
                     zIndex: 0,
                 },
             }}>
-                <Typography component='h1' variant='h2' sx={{ mb: 3, position: 'relative', zIndex: 1 }}>
+                <Typography component='h1' variant='h2' sx={{
+                    mb: 3,
+                    position: 'relative',
+                    zIndex: 1,
+                    fontSize: { xs: '2rem', md: '2.75rem', lg: '3.5rem', xl: '4rem' },
+                    maxWidth: { xs: '100%', lg: '800px' },
+                }}>
                     Hey there, I'm <span style={{ fontWeight: "bold" }}>Alex Gagnon</span>.
                 </Typography>
-                <Typography component='h2' variant='h5' sx={{ fontWeight: 300, lineHeight: 1.6, mb: 4, position: 'relative', zIndex: 1 }}>
+                <Typography component='h2' variant='h5' sx={{
+                    fontWeight: 300,
+                    lineHeight: 1.7,
+                    mb: 4,
+                    position: 'relative',
+                    zIndex: 1,
+                    fontSize: { xs: '1rem', md: '1.15rem', lg: '1.25rem' },
+                    maxWidth: { xs: '100%', lg: '680px' },
+                }}>
                     I architect automation systems and AI-augmented workflows that make engineering teams faster. Currently leading a team of 11 SDETs at Vestmark — building the tools that eliminate the toil between developers and production.
                 </Typography>
-                <Button variant='outlined' href='/projects' size='large' color='sleepyText' sx={{ fontSize: 18, position: 'relative', zIndex: 1 }}>
+                <Button variant='outlined' href='/projects' size='large' color='sleepyText' sx={{ fontSize: { xs: 16, lg: 18 }, position: 'relative', zIndex: 1, alignSelf: { xs: 'center', lg: 'flex-start' } }}>
                     View my work
                 </Button>
             </Box>
 
-            {/* About Me Section */}
-            <Box sx={{ maxWidth: '860px', mx: 'auto', px: 3, mb: 6 }}>
-                <Typography component='h2' variant='h4' sx={{ color: '#deb992', fontWeight: 'bold', mb: 3 }}>
-                    About Me
-                </Typography>
-                <Typography variant='body1' sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}>
-                    I've spent 8+ years chasing one question: how do you make software teams ship with more confidence and less friction? That's led me from writing test frameworks from scratch at a startup, to now directing automation strategy across a full QA organization.
-                </Typography>
-                <Typography variant='body1' sx={{ lineHeight: 1.8, fontSize: '1.1rem', mt: 2 }}>
-                    These days I'm deep in the intersection of AI tooling and developer productivity — building MCP servers, RAG pipelines, and agents that turn hours of manual work into minutes. When I'm not doing that, I'm probably studying for my private pilot certificate.
-                </Typography>
-            </Box>
-
-            {/* Career Highlights Section */}
-            <Box sx={{ maxWidth: '860px', mx: 'auto', px: 3, mb: 6 }}>
-                <Typography component='h2' variant='h4' sx={{ color: '#deb992', fontWeight: 'bold', mb: 3 }}>
-                    Highlights
-                </Typography>
-                <List sx={{ pl: 0 }}>
-                    {highlights.map((highlight, index) => (
-                        <ListItem key={index} sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5, p: 0 }}>
-                            <Typography sx={{ mr: 2, color: '#1ba098', fontWeight: 'bold' }}>•</Typography>
-                            <ListItemText primary={highlight} />
-                        </ListItem>
-                    ))}
-                </List>
-            </Box>
+            {/* About Me + Highlights — side by side on large screens */}
+            <Grid container spacing={{ xs: 4, lg: 8 }} sx={{ mb: 8 }}>
+                <Grid item xs={12} lg={6}>
+                    <Typography component='h2' variant='h4' sx={{ color: '#deb992', fontWeight: 'bold', mb: 3 }}>
+                        About Me
+                    </Typography>
+                    <Typography variant='body1' sx={{ lineHeight: 1.9, fontSize: { xs: '1rem', lg: '1.05rem' } }}>
+                        I've spent 8+ years chasing one question: how do you make software teams ship with more confidence and less friction? That's led me from writing test frameworks from scratch at a startup, to now directing automation strategy across a full QA organization.
+                    </Typography>
+                    <Typography variant='body1' sx={{ lineHeight: 1.9, fontSize: { xs: '1rem', lg: '1.05rem' }, mt: 2 }}>
+                        These days I'm deep in the intersection of AI tooling and developer productivity — building MCP servers, RAG pipelines, and agents that turn hours of manual work into minutes. When I'm not doing that, I'm probably studying for my private pilot certificate.
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                    <Typography component='h2' variant='h4' sx={{ color: '#deb992', fontWeight: 'bold', mb: 3 }}>
+                        Highlights
+                    </Typography>
+                    <List sx={{ pl: 0 }}>
+                        {highlights.map((highlight, index) => (
+                            <ListItem key={index} sx={{ display: 'flex', alignItems: 'flex-start', mb: 2, p: 0 }}>
+                                <Typography sx={{ mr: 2, color: '#1ba098', fontWeight: 'bold', flexShrink: 0 }}>•</Typography>
+                                <ListItemText primary={highlight} primaryTypographyProps={{ sx: { lineHeight: 1.7 } }} />
+                            </ListItem>
+                        ))}
+                    </List>
+                </Grid>
+            </Grid>
 
             {/* Skills Section */}
-            <Box sx={{ maxWidth: '1000px', mx: 'auto', px: 3, mb: 6 }}>
+            <Box sx={{ mb: 8 }}>
                 <Typography component='h2' variant='h4' sx={{ color: '#deb992', fontWeight: 'bold', mb: 3 }}>
                     Skills & Tools
                 </Typography>
                 <Grid container spacing={3}>
                     {Object.entries(skills).map(([category, items]) => (
-                        <Grid item xs={12} sm={6} md={4} key={category}>
+                        <Grid item xs={12} sm={6} md={4} lg={true} key={category}>
                             <Paper sx={{
                                 p: 3,
+                                height: '100%',
                                 backgroundColor: 'rgba(255, 255, 255, 0.04)',
                                 backdropFilter: 'blur(12px)',
                                 border: '1px solid rgba(255, 255, 255, 0.07)',
@@ -126,11 +139,11 @@ export const Home = () => {
             </Box>
 
             {/* Get In Touch Section */}
-            <Box sx={{ maxWidth: '860px', mx: 'auto', px: 3, mb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', lg: 'flex-start' }, textAlign: { xs: 'center', lg: 'left' } }}>
                 <Typography component='h2' variant='h4' sx={{ color: '#deb992', fontWeight: 'bold', mb: 2 }}>
                     Get In Touch
                 </Typography>
-                <Typography variant='body1' sx={{ lineHeight: 1.8, fontSize: '1.1rem', mb: 3 }}>
+                <Typography variant='body1' sx={{ lineHeight: 1.8, fontSize: '1.05rem', mb: 3, maxWidth: '560px' }}>
                     Want to talk shop about automation, AI tooling, or QA strategy? I'm always up for a good engineering conversation.
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
