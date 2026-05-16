@@ -8,7 +8,7 @@ interface Props {
 
 export const Projects: FC<Props> = ({ projects }: Props) => {
     return (
-        <Box sx={{ p: 2 }}>
+        <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
             <Typography
                 variant="h4"
                 sx={{
@@ -20,20 +20,9 @@ export const Projects: FC<Props> = ({ projects }: Props) => {
             >
                 Projects
             </Typography>
-            <Grid
-                container
-                spacing={3}
-                sx={{
-                    display: 'grid',
-                    gridTemplateColumns: {
-                        xs: '1fr',
-                        md: 'repeat(2, 1fr)',
-                        lg: 'repeat(3, 1fr)',
-                    },
-                }}
-            >
+            <Grid container spacing={4}>
                 {projects.map((project: Project) => (
-                    <Grid key={project.title} item xs={12} sm={6} md={4} lg={4}>
+                    <Grid key={project.title} item xs={12} sm={6}>
                         <Card
                             title={project.title}
                             description={project.description}
@@ -48,3 +37,4 @@ export const Projects: FC<Props> = ({ projects }: Props) => {
         </Box>
     );
 };
+

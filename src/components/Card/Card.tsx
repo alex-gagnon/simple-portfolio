@@ -92,6 +92,7 @@ export const Card: FC<Project> = ({
                                 backgroundColor: 'rgba(219, 185, 146, 0.2)',
                                 color: '#deb992',
                                 border: '1px solid rgba(219, 185, 146, 0.3)',
+                                maxWidth: 'none',
                             }}
                         />
                     ))}
