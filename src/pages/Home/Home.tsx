@@ -26,6 +26,7 @@ export const Home = () => {
         <Box color='sleepyText.main' sx={{ display: 'flex', flexDirection: 'column', pb: 6 }}>
             {/* Hero Section */}
             <Box sx={{
+                position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -36,14 +37,26 @@ export const Home = () => {
                 mx: 'auto',
                 px: 3,
                 mb: 6,
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '700px',
+                    height: '500px',
+                    background: 'radial-gradient(ellipse at center, rgba(27, 160, 152, 0.12) 0%, transparent 65%)',
+                    pointerEvents: 'none',
+                    zIndex: 0,
+                },
             }}>
-                <Typography component='h1' variant='h2' sx={{ mb: 3 }}>
+                <Typography component='h1' variant='h2' sx={{ mb: 3, position: 'relative', zIndex: 1 }}>
                     Hey there, I'm <span style={{ fontWeight: "bold" }}>Alex Gagnon</span>.
                 </Typography>
-                <Typography component='h2' variant='h5' sx={{ fontWeight: 300, lineHeight: 1.6, mb: 4 }}>
+                <Typography component='h2' variant='h5' sx={{ fontWeight: 300, lineHeight: 1.6, mb: 4, position: 'relative', zIndex: 1 }}>
                     I architect automation systems and AI-augmented workflows that make engineering teams faster. Currently leading a team of 11 SDETs at Vestmark — building the tools that eliminate the toil between developers and production.
                 </Typography>
-                <Button variant='outlined' href='/projects' size='large' color='sleepyText' sx={{ fontSize: 18 }}>
+                <Button variant='outlined' href='/projects' size='large' color='sleepyText' sx={{ fontSize: 18, position: 'relative', zIndex: 1 }}>
                     View my work
                 </Button>
             </Box>
@@ -84,7 +97,20 @@ export const Home = () => {
                 <Grid container spacing={3}>
                     {Object.entries(skills).map(([category, items]) => (
                         <Grid item xs={12} sm={6} md={4} key={category}>
-                            <Paper sx={{ p: 3, backgroundColor: 'rgba(27, 160, 152, 0.1)', borderLeft: '3px solid #1ba098' }}>
+                            <Paper sx={{
+                                p: 3,
+                                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                                backdropFilter: 'blur(12px)',
+                                border: '1px solid rgba(255, 255, 255, 0.07)',
+                                borderLeft: '3px solid #1ba098',
+                                boxShadow: '0 4px 24px rgba(0, 0, 0, 0.3)',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(27, 160, 152, 0.08)',
+                                    border: '1px solid rgba(27, 160, 152, 0.25)',
+                                    borderLeft: '3px solid #1ba098',
+                                },
+                            }}>
                                 <Typography variant='h6' sx={{ color: '#deb992', fontWeight: 'bold', mb: 2 }}>
                                     {category}
                                 </Typography>

@@ -32,15 +32,19 @@ export const Card: FC<Project> = ({
     return (
         <MuiCard
             sx={{
-                backgroundColor: '#1a3a52',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 color: 'white',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'all 0.3s ease',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
                 '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: 6,
+                    transform: 'translateY(-6px)',
+                    boxShadow: '0 20px 48px rgba(0, 0, 0, 0.5)',
+                    border: '1px solid rgba(27, 160, 152, 0.35)',
                 },
             }}
         >
