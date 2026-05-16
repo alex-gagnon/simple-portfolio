@@ -12,10 +12,5 @@ export default defineConfig({
       include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/index.tsx', 'src/reportWebVitals.ts'],
     },
-    server: {
-      deps: {
-        inline: ['@tsparticles/react', '@tsparticles/engine', '@tsparticles/preset-stars'],
-      },
-    },
   },
 })

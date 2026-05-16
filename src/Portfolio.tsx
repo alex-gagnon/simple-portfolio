@@ -4,13 +4,13 @@ import { theme } from './theme';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import './Portfolio.scss';
-import { ParticlesComponent } from './components';
+import { AuroraBackground } from './components';
 
 
 const Portfolio = () => {
     return (
         <ThemeProvider theme={theme}>
-            <ParticlesComponent />
+            <AuroraBackground />
             <Header />
             <Container component="main" maxWidth="xl" sx={{ position: 'relative', px: { xs: 2, sm: 3, md: 5, lg: 8 } }}>
                 <CssBaseline />
