@@ -5,8 +5,12 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
 
-const pages = ['Projects'];
-const buttonFontSize = 18;
+const NAV_LINKS = [
+    { label: 'About', href: '#about' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Contact', href: '#contact' },
+];
+const buttonFontSize = 16;
 
 
 export const Header = () => {
@@ -58,17 +62,11 @@ export const Header = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                        <MenuItem key='home' onClick={handleCloseNavMenu}>
-                            <Typography textAlign="center" color="#1ba098">
-                                <Link href='/'>Home</Link>
-                            </Typography>
-                        </MenuItem>
-
-                        {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                            <Typography textAlign="center">
-                                <Link href={page.toLowerCase()}>{page}</Link>
-                            </Typography>
+                        {NAV_LINKS.map(({ label, href }) => (
+                            <MenuItem key={label} onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center">
+                                    <Link href={href} underline="none" color="inherit">{label}</Link>
+                                </Typography>
                             </MenuItem>
                         ))}
                         </Menu>
@@ -82,25 +80,15 @@ export const Header = () => {
                         <img src="/logos/android-chrome-192x192.png" alt="Alex Gagnon" height={45} width={50}/>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Button
-                                key='home'
-                                onClick={handleCloseNavMenu}
-                                href='/'
+                        {NAV_LINKS.map(({ label, href }) => (
+                            <Button
+                                key={label}
+                                href={href}
                                 color='sleepyButton'
                                 sx={{ my: 2, display: 'block', fontSize: buttonFontSize }}
                             >
-                                Home
-                        </Button>
-                        {pages.map((page) => (
-                        <Button
-                            key={page}
-                            onClick={handleCloseNavMenu}
-                            href={page.toLowerCase()}
-                            color='sleepyButton'
-                            sx={{ my: 2, display: 'block', fontSize: buttonFontSize }}
-                        >
-                            {page}
-                        </Button>
+                                {label}
+                            </Button>
                         ))}
                     </Box>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>

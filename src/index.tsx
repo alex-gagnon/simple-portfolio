@@ -1,9 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { PROJECTS } from './data/projects';
 import './index.css';
-import { Home, Projects } from './pages';
+import { Home } from './pages';
 import Portfolio from './Portfolio';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,7 +15,6 @@ root.render(
       <Routes>
         <Route path="/" element={<Portfolio />}>
           <Route index element={<Home />} />
-          <Route path="projects" element={<Projects projects={PROJECTS} />} />
         </Route>
       </Routes>
     </BrowserRouter>
