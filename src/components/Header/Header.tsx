@@ -34,7 +34,7 @@ export const Header = () => {
                             aria-label="menu"
                             sx={{ mr: 2 }}
                         >
-                            <MenuItem />
+                            <Typography>&#9776;</Typography>
                         </IconButton>
 
                         <Menu

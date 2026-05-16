@@ -1,22 +1,21 @@
 import React from "react";
-import Particles, { IParticlesProps } from "react-tsparticles";
-import type { Engine } from "tsparticles-engine";
-import { loadStarsPreset } from "tsparticles-preset-stars";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
+import { loadStarsPreset } from "@tsparticles/preset-stars";
+import type { Engine } from "@tsparticles/engine";
 
+const particlesInit = async (engine: Engine): Promise<void> => {
+  await loadStarsPreset(engine);
+};
 
-export class ParticlesComponent extends React.PureComponent<IParticlesProps> {
-    // this customizes the component tsParticles installation
-    async particlesInit(engine: Engine): Promise<void> {
-    // this adds the preset to tsParticles, you can safely use the
-    await loadStarsPreset(engine);
-  }
+const particlesOptions = {
+  fullScreen: true,
+  preset: "stars",
+} as const;
 
-  render() {
-    const options = {
-        fullScreen: true,
-        preset: "stars",
-    };
-
-    return <Particles options={options} init={this.particlesInit} />;
-  }
+export function ParticlesComponent() {
+  return (
+    <ParticlesProvider init={particlesInit}>
+      <Particles options={particlesOptions} />
+    </ParticlesProvider>
+  );
 }
