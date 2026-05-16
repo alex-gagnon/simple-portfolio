@@ -16,8 +16,8 @@ export const theme = createTheme({
     palette: {
         sleepyText: palette.augmentColor({
             color: {
-                main: '#deb992'
-            } 
+                main: '#e8eef4'
+            }
         }),
 
         sleepyBackground: {

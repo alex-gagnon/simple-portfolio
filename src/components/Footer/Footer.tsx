@@ -26,7 +26,7 @@ export const Footer = () => {
                         sx={{
                             color: '#1ba098',
                             '&:hover': {
-                                color: '#deb992'
+                                color: '#f0c050'
                             }
                         }}
                     >
@@ -43,7 +43,7 @@ export const Footer = () => {
                         sx={{
                             color: '#1ba098',
                             '&:hover': {
-                                color: '#deb992'
+                                color: '#f0c050'
                             }
                         }}
                     >
@@ -58,7 +58,7 @@ export const Footer = () => {
                         sx={{
                             color: '#1ba098',
                             '&:hover': {
-                                color: '#deb992'
+                                color: '#f0c050'
                             }
                         }}
                     >
@@ -69,12 +69,12 @@ export const Footer = () => {
 
             <Typography
                 sx={{
-                    color: 'rgba(222, 185, 146, 0.6)',
+                    color: 'rgba(200, 218, 235, 0.45)',
                     fontSize: '0.9rem',
                     marginTop: 1
                 }}
             >
-                © 2025 Alex Gagnon
+                © 2026 Alex Gagnon
             </Typography>
         </Box>
     );

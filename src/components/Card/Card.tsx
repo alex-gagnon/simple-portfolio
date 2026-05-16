@@ -53,7 +53,7 @@ export const Card: FC<Project> = ({
                     <Typography
                         variant="h6"
                         sx={{
-                            color: '#deb992',
+                            color: '#f0c050',
                             fontWeight: 600,
                         }}
                     >
@@ -93,9 +93,9 @@ export const Card: FC<Project> = ({
                             label={item}
                             size="small"
                             sx={{
-                                backgroundColor: 'rgba(219, 185, 146, 0.2)',
-                                color: '#deb992',
-                                border: '1px solid rgba(219, 185, 146, 0.3)',
+                                backgroundColor: 'rgba(200, 218, 235, 0.08)',
+                                color: 'rgba(200, 218, 235, 0.8)',
+                                border: '1px solid rgba(200, 218, 235, 0.15)',
                                 maxWidth: 'none',
                             }}
                         />

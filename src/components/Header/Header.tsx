@@ -130,7 +130,7 @@ export const Header = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 size="small"
-                                sx={{ color: '#1ba098', '&:hover': { color: '#deb992' } }}
+                                sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
                             >
                                 <GitHubIcon />
                             </IconButton>
@@ -142,7 +142,7 @@ export const Header = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 size="small"
-                                sx={{ color: '#1ba098', '&:hover': { color: '#deb992' } }}
+                                sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
                             >
                                 <LinkedInIcon />
                             </IconButton>
@@ -152,7 +152,7 @@ export const Header = () => {
                                 component="a"
                                 href="mailto:alexgagnon227@gmail.com"
                                 size="small"
-                                sx={{ color: '#1ba098', '&:hover': { color: '#deb992' } }}
+                                sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
                             >
                                 <EmailIcon />
                             </IconButton>
