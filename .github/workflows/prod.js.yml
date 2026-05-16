@@ -19,25 +19,25 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v2
-    
+      uses: actions/checkout@v4
+
     - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    
+
     - name: Install dependencies
-      run: npm install
-    
+      run: npm ci
+
     - name: Run tests
-      run: npm test -- --coverage
-    
+      run: npm run test:coverage
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2.1.0
-    
+
     - name: Build
       run: npm run build
-    
+
     - name: Deploy
       run: |
         git config --global user.name $user_name
@@ -49,4 +49,3 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
-    

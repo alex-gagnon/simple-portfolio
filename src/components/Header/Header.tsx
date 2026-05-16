@@ -26,7 +26,7 @@ export const Header = () => {
                         component="div"
                         sx={{ mr: 5, display: { xs: 'none', md: 'flex' } }}
                     >
-                        <img src={`${process.env.PUBLIC_URL}/logos/android-chrome-192x192.png`} alt="Alex Gagnon" height={50} width={55}/>
+                        <img src="/logos/android-chrome-192x192.png" alt="Alex Gagnon" height={50} width={55}/>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -79,7 +79,7 @@ export const Header = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        <img src={`${process.env.PUBLIC_URL}/logos/android-chrome-192x192.png`} alt="Alex Gagnon" height={45} width={50}/>
+                        <img src="/logos/android-chrome-192x192.png" alt="Alex Gagnon" height={45} width={50}/>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Button
