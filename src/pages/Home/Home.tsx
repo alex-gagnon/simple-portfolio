@@ -281,7 +281,7 @@ export const Home = () => {
                         <Grid item xs={12} lg={6}>
                             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
                                 <Tooltip title="Email">
-                                    <IconButton component="a" href="mailto:alexgagnon227@gmail.com"
+                                    <IconButton component="a" href="mailto:admin@alex-gagnon.com"
                                         sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}>
                                         <EmailIcon sx={{ fontSize: 28 }} />
                                     </IconButton>

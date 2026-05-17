@@ -151,7 +151,7 @@ export const Header = () => {
                         <Tooltip title="Email">
                             <IconButton
                                 component="a"
-                                href="mailto:alexgagnon227@gmail.com"
+                                href="mailto:admin@alex-gagnon.com"
                                 size="small"
                                 sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
                             >

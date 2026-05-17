@@ -54,7 +54,7 @@ export const Footer = () => {
                 <Tooltip title="Email">
                     <IconButton
                         component="a"
-                        href="mailto:alexgagnon227@gmail.com"
+                        href="mailto:admin@alex-gagnon.com"
                         sx={{
                             color: '#1ba098',
                             '&:hover': {
