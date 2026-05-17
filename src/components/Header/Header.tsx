@@ -2,7 +2,6 @@ import { AppBar, Box, Button, Container, IconButton, Link, Menu, MenuItem, Toolb
 import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useActiveSection } from '../../hooks/useActiveSection';
 
@@ -147,16 +146,6 @@ export const Header = () => {
                                 sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
                             >
                                 <LinkedInIcon />
-                            </IconButton>
-                        </Tooltip>
-                        <Tooltip title="Email">
-                            <IconButton
-                                component="a"
-                                href="mailto:admin@alex-gagnon.com"
-                                size="small"
-                                sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
-                            >
-                                <EmailIcon />
                             </IconButton>
                         </Tooltip>
                     </Box>
