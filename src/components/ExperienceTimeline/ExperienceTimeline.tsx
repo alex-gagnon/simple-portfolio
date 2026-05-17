@@ -43,14 +43,14 @@ export const ExperienceTimeline = () => (
                             </Box>
                             <Box sx={{ flex: 1, pb: 1 }}>
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: { xs: 0.5, sm: 1.5 }, mb: 0.5 }}>
-                                    <Typography sx={{ color: '#f0c050', fontWeight: 700, fontSize: { xs: '1.05rem', md: '1.15rem' } }}>
+                                    <Typography sx={{ color: '#f0c050', fontWeight: 700, fontSize: { xs: '1.1rem', md: '1.25rem', lg: '1.4rem' } }}>
                                         {job.title}
                                     </Typography>
-                                    <Typography sx={{ color: '#1ba098', fontSize: '1rem', fontWeight: 500 }}>
+                                    <Typography sx={{ color: '#1ba098', fontSize: { xs: '1rem', md: '1.1rem' }, fontWeight: 500 }}>
                                         {job.company}
                                     </Typography>
                                 </Box>
-                                <Typography sx={{ color: 'rgba(200,218,235,0.5)', fontSize: '0.875rem', mb: 1.5 }}>
+                                <Typography sx={{ color: 'rgba(200,218,235,0.5)', fontSize: { xs: '0.875rem', md: '0.95rem' }, mb: 1.5 }}>
                                     {job.period}
                                 </Typography>
                                 <Typography variant='body1' sx={{ color: 'rgba(200,218,235,0.8)' }}>

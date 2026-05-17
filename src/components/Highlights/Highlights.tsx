@@ -12,7 +12,7 @@ export const Highlights = () => (
                 <Grid item xs={12} sm={6} key={i}>
                     <RevealSection delay={i * 90}>
                         <Paper sx={{
-                            p: 2.5,
+                            p: { xs: 3, md: 3.5 },
                             height: '100%',
                             backgroundColor: 'rgba(255, 255, 255, 0.04)',
                             backdropFilter: 'blur(12px)',
@@ -30,28 +30,27 @@ export const Highlights = () => (
                             <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.75, mb: 0.5 }}>
                                 <Typography sx={{
                                     fontFamily: "'Playfair Display', serif",
-                                    fontSize: '2.2rem',
+                                    fontSize: { xs: '2.5rem', md: '3rem' },
                                     fontWeight: 700,
                                     color: '#f0c050',
                                     lineHeight: 1,
                                 }}>
                                     {card.stat}
                                 </Typography>
-                                <Typography sx={{ color: 'rgba(200,218,235,0.55)', fontSize: '0.9rem', fontWeight: 300 }}>
+                                <Typography sx={{ color: 'rgba(200,218,235,0.6)', fontSize: '1rem', fontWeight: 300 }}>
                                     {card.unit}
                                 </Typography>
                             </Box>
                             <Chip label={card.label} size="small" sx={{
-                                mb: 1.25,
+                                mb: 1.5,
                                 backgroundColor: 'rgba(27, 160, 152, 0.15)',
                                 color: '#1ba098',
-                                fontSize: '0.75rem',
+                                fontSize: '0.85rem',
                                 fontWeight: 600,
                                 border: '1px solid rgba(27, 160, 152, 0.25)',
                             }} />
-                            <Typography variant='body2' sx={{
-                                color: 'rgba(200, 218, 235, 0.7)',
-                                lineHeight: 1.65,
+                            <Typography variant='body1' sx={{
+                                color: 'rgba(200, 218, 235, 0.75)',
                             }}>
                                 {card.detail}
                             </Typography>

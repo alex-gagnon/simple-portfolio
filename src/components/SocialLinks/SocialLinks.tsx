@@ -10,7 +10,7 @@ interface Props {
     gap?: number;
 }
 
-export const SocialLinks = ({ iconSize = 24, gap = 1 }: Props) => (
+export const SocialLinks = ({ iconSize = 28, gap = 1 }: Props) => (
     <Box sx={{ display: 'flex', gap }}>
         <Tooltip title="GitHub">
             <IconButton component="a" href="https://github.com/alex-gagnon"

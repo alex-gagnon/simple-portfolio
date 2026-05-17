@@ -23,9 +23,9 @@ export const Hero = () => (
             mb: 2,
             position: 'relative',
             zIndex: 1,
-            fontSize: { xs: '2.2rem', md: '3rem', lg: '3.8rem', xl: '4.5rem' },
-            maxWidth: { xs: '100%', lg: '850px' },
-            lineHeight: 1.15,
+            fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4.75rem', xl: '5.75rem' },
+            maxWidth: { xs: '100%', lg: '900px' },
+            lineHeight: 1.12,
         }}>
             Hey there, I'm{' '}
             <Box component='span' sx={{ fontWeight: 'bold', color: '#f0c050' }}>Alex Gagnon</Box>.
@@ -36,8 +36,8 @@ export const Hero = () => (
             mb: 5,
             position: 'relative',
             zIndex: 1,
-            fontSize: { xs: '1rem', md: '1.1rem', lg: '1.2rem' },
-            maxWidth: { xs: '100%', lg: '640px' },
+            fontSize: { xs: '1.1rem', md: '1.3rem', lg: '1.5rem', xl: '1.65rem' },
+            maxWidth: { xs: '100%', lg: '700px' },
             color: 'rgba(200, 218, 235, 0.88)',
         }}>
             I architect automation systems and AI-augmented workflows that make engineering teams faster.
@@ -46,14 +46,14 @@ export const Hero = () => (
         </Typography>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, position: 'relative', zIndex: 1 }}>
             <Button variant='outlined' href='#projects' size='large' color='sleepyText'
-                sx={{ fontSize: { xs: 15, lg: 17 } }}>
+                sx={{ fontSize: { xs: 16, md: 18, lg: 20 } }}>
                 View my work
             </Button>
             <Button variant='outlined' size='large'
                 href='/Alex_Gagnon_Resume_Leader_Port.docx.pdf'
                 download="Alex_Gagnon_Resume_Engineering_Lead.pdf"
                 sx={{
-                    fontSize: { xs: 15, lg: 17 },
+                    fontSize: { xs: 16, md: 18, lg: 20 },
                     color: '#1ba098', borderColor: '#1ba098',
                     '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
                 }}>
@@ -63,7 +63,7 @@ export const Hero = () => (
                 href='/Alex_Gagnon_Resume_IC_Port.docx.pdf'
                 download="Alex_Gagnon_Resume_Senior_IC.pdf"
                 sx={{
-                    fontSize: { xs: 15, lg: 17 },
+                    fontSize: { xs: 16, md: 18, lg: 20 },
                     color: '#1ba098', borderColor: 'rgba(27,160,152,0.5)',
                     '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
                 }}>

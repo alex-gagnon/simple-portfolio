@@ -10,6 +10,7 @@ export const SectionHeading = ({ children }: Props) => (
         mb: 4,
         pb: 1.5,
         borderBottom: '1px solid rgba(27, 160, 152, 0.3)',
+        fontSize: { xs: '1.75rem', md: '2.25rem', lg: '2.75rem' },
     }}>
         {children}
     </Typography>

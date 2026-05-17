@@ -12,7 +12,7 @@ const NAV_LINKS = [
     { label: 'Contact', href: '#contact', sectionId: 'contact' },
 ];
 const SECTION_IDS = NAV_LINKS.map(n => n.sectionId);
-const buttonFontSize = 16;
+const buttonFontSize = 18;
 
 export const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -38,7 +38,7 @@ export const Header = () => {
             <Container maxWidth={false}>
                 <Toolbar>
                     <Box component="a" href="/" sx={{ mr: 5, display: { xs: 'none', md: 'flex' }, lineHeight: 0 }}>
-                        <Logo size={50} />
+                        <Logo size={58} />
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -77,7 +77,7 @@ export const Header = () => {
                                 <MenuItem key={label} onClick={handleCloseNavMenu}
                                     sx={{ '&:hover': { backgroundColor: 'rgba(27,160,152,0.12)' } }}>
                                     <Link href={href} underline="none"
-                                        sx={{ color: '#e8eef4', width: '100%', fontSize: '1rem' }}>
+                                        sx={{ color: '#e8eef4', width: '100%', fontSize: '1.1rem' }}>
                                         {label}
                                     </Link>
                                 </MenuItem>
@@ -86,7 +86,7 @@ export const Header = () => {
                     </Box>
 
                     <Box component="a" href="/" sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, lineHeight: 0 }}>
-                        <Logo size={44} />
+                        <Logo size={50} />
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -126,7 +126,7 @@ export const Header = () => {
                     </Box>
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <SocialLinks />
+                        <SocialLinks iconSize={30} />
                     </Box>
                 </Toolbar>
             </Container>
