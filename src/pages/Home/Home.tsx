@@ -19,6 +19,62 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
     </Typography>
 );
 
+const experience = [
+    {
+        title: 'Manager, QA Automation',
+        company: 'Vestmark',
+        period: 'Feb 2024 – Present',
+        bullets: [
+            'Manage and mentor a team of 11 SDETs across multiple cloud-hosted financial services products.',
+            'Leading an initiative to redesign test processes through an AI-augmented workflow with human-in-the-loop review.',
+            'Created the QE Marketplace — an enterprise repository of AI-powered plugins (skills, hooks, agents, MCP servers) with training sessions across engineering to drive adoption.',
+        ],
+    },
+    {
+        title: 'Team Lead, QA Automation',
+        company: 'Vestmark',
+        period: 'Feb 2023 – Feb 2024',
+        bullets: [
+            'Directed an AI-powered nightly monitoring tool that automated 2–3 hours of daily manual triage, saving ~100 hours per month.',
+            'Led UI automation suite overhaul catching ~120 defects. Built flake-detection tooling using historical test data.',
+        ],
+    },
+    {
+        title: 'Senior QA Automation Engineer',
+        company: 'Vestmark',
+        period: 'Jun 2021 – Feb 2023',
+        bullets: [
+            'Architected Python automation frameworks (Selenium, Locust, JMeter, pytest) with CI/CD pipelines (Jenkins, Docker), increasing deployment frequency by 40%.',
+            'Delivered 700+ automated API tests in four months, uncovering ~30 previously undetected issues, 5 of them critical.',
+        ],
+    },
+    {
+        title: 'Test Automation Software Engineer',
+        company: 'Escher Group',
+        period: 'Mar 2020 – May 2021',
+        bullets: [
+            'Standardized Python automation frameworks for desktop and mobile, reducing production bugs by 10%.',
+            'Built CI/CD pipelines on Bamboo and Azure saving 1,000+ developer hours annually. Engineered a full-stack monitoring app with Azure OAuth cutting developer labor by 500+ hours.',
+        ],
+    },
+    {
+        title: 'Software QA Engineer',
+        company: 'Firebrand Technologies',
+        period: 'Jul 2019 – Mar 2020',
+        bullets: [
+            'Self-taught C# and JMeter to independently build automation and performance frameworks from scratch, reducing manual effort by 1,200+ hours annually.',
+        ],
+    },
+    {
+        title: 'Software QA Specialist',
+        company: 'Transparent Language',
+        period: 'Mar 2018 – Jun 2019',
+        bullets: [
+            'Promoted from manual tester to database testing. Built Python validation tests for blue/green MongoDB deployments, catching significant data loss during switchovers.',
+        ],
+    },
+];
+
 const statCards = [
     {
         stat: '~100',
@@ -198,6 +254,79 @@ export const Home = () => {
                         </RevealSection>
                     </Grid>
                 </Grid>
+            </Box>
+
+            {/* ── Experience ── */}
+            <Box id="experience" sx={{ mb: 10 }}>
+                <RevealSection>
+                    <SectionHeading>Experience</SectionHeading>
+                </RevealSection>
+                <Box sx={{ position: 'relative' }}>
+                    {/* Vertical line */}
+                    <Box sx={{
+                        position: 'absolute',
+                        left: { xs: 12, md: 20 },
+                        top: 8,
+                        bottom: 8,
+                        width: '2px',
+                        background: 'linear-gradient(to bottom, #1ba098, rgba(27,160,152,0.15))',
+                        zIndex: 0,
+                    }} />
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                        {experience.map((job, i) => (
+                            <RevealSection key={i} delay={i * 60}>
+                                <Box sx={{ display: 'flex', gap: { xs: 3, md: 5 }, position: 'relative', pb: 5 }}>
+                                    {/* Dot */}
+                                    <Box sx={{
+                                        flexShrink: 0,
+                                        width: { xs: 26, md: 42 },
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        pt: '5px',
+                                        zIndex: 1,
+                                    }}>
+                                        <Box sx={{
+                                            width: 12,
+                                            height: 12,
+                                            borderRadius: '50%',
+                                            backgroundColor: i === 0 ? '#1ba098' : 'rgba(27,160,152,0.4)',
+                                            border: `2px solid ${i === 0 ? '#1ba098' : 'rgba(27,160,152,0.5)'}`,
+                                            boxShadow: i === 0 ? '0 0 12px rgba(27,160,152,0.6)' : 'none',
+                                            mt: '2px',
+                                        }} />
+                                    </Box>
+                                    {/* Content */}
+                                    <Box sx={{ flex: 1, pb: 1 }}>
+                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: { xs: 0.5, sm: 1.5 }, mb: 0.5 }}>
+                                            <Typography sx={{ color: '#f0c050', fontWeight: 700, fontSize: { xs: '1rem', md: '1.05rem' } }}>
+                                                {job.title}
+                                            </Typography>
+                                            <Typography sx={{ color: '#1ba098', fontSize: '0.9rem', fontWeight: 500 }}>
+                                                {job.company}
+                                            </Typography>
+                                        </Box>
+                                        <Typography sx={{ color: 'rgba(200,218,235,0.45)', fontSize: '0.8rem', mb: 1.5, fontFamily: "'Inter', sans-serif" }}>
+                                            {job.period}
+                                        </Typography>
+                                        <Box component="ul" sx={{ m: 0, pl: 2 }}>
+                                            {job.bullets.map((b, j) => (
+                                                <Box component="li" key={j} sx={{
+                                                    color: 'rgba(200,218,235,0.8)',
+                                                    fontSize: '0.9rem',
+                                                    lineHeight: 1.7,
+                                                    mb: 0.75,
+                                                    '&::marker': { color: '#1ba098' },
+                                                }}>
+                                                    {b}
+                                                </Box>
+                                            ))}
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </RevealSection>
+                        ))}
+                    </Box>
+                </Box>
             </Box>
 
             {/* ── Skills ── */}
