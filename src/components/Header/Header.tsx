@@ -67,13 +67,24 @@ export const Header = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             disableScrollLock
+                            PaperProps={{
+                                sx: {
+                                    backgroundColor: 'rgba(6, 12, 20, 0.95)',
+                                    backdropFilter: 'blur(16px)',
+                                    border: '1px solid rgba(27, 160, 152, 0.2)',
+                                    color: '#e8eef4',
+                                    mt: 0.5,
+                                }
+                            }}
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
                             {NAV_LINKS.map(({ label, href }) => (
-                                <MenuItem key={label} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">
-                                        <Link href={href} underline="none" color="inherit">{label}</Link>
-                                    </Typography>
+                                <MenuItem key={label} onClick={handleCloseNavMenu}
+                                    sx={{ '&:hover': { backgroundColor: 'rgba(27,160,152,0.12)' } }}>
+                                    <Link href={href} underline="none"
+                                        sx={{ color: '#e8eef4', width: '100%', fontSize: '1rem' }}>
+                                        {label}
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
