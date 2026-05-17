@@ -4,6 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useActiveSection } from '../../hooks/useActiveSection';
+import { LogoMonogram, LogoAviation, LogoHex } from '../Logo/Logo';
 
 const NAV_LINKS = [
     { label: 'About', href: '#about', sectionId: 'about' },
@@ -37,14 +38,12 @@ export const Header = () => {
         >
             <Container maxWidth={false}>
                 <Toolbar>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 5, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        <img src="/logos/android-chrome-192x192.png" alt="Alex Gagnon" height={50} width={55} />
-                    </Typography>
+                    {/* LOGO PREVIEW — pick A, B, or C then we'll clean this up */}
+                    <Box sx={{ mr: 5, display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
+                        <Tooltip title="A — Monogram"><Box sx={{ cursor: 'pointer' }}><LogoMonogram /></Box></Tooltip>
+                        <Tooltip title="B — Aviation"><Box sx={{ cursor: 'pointer' }}><LogoAviation /></Box></Tooltip>
+                        <Tooltip title="C — Hex"><Box sx={{ cursor: 'pointer' }}><LogoHex /></Box></Tooltip>
+                    </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -90,14 +89,9 @@ export const Header = () => {
                         </Menu>
                     </Box>
 
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        <img src="/logos/android-chrome-192x192.png" alt="Alex Gagnon" height={45} width={50} />
-                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, gap: 1.5, alignItems: 'center' }}>
+                        <LogoMonogram /><LogoAviation /><LogoHex />
+                    </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {NAV_LINKS.map(({ label, href, sectionId }) => {
