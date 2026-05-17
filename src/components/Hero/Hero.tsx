@@ -27,8 +27,10 @@ export const Hero = () => (
             maxWidth: { xs: '100%', lg: '900px' },
             lineHeight: 1.12,
         }}>
-            Hey there, I'm{' '}
-            <Box component='span' sx={{ fontWeight: 'bold', color: '#f0c050' }}>Alex Gagnon</Box>.
+            Hey there,{' '}
+            <Box component='span' sx={{ whiteSpace: 'nowrap' }}>
+                I'm <Box component='span' sx={{ fontWeight: 'bold', color: '#f0c050' }}>Alex Gagnon</Box>.
+            </Box>
         </Typography>
         <Typography variant='body1' sx={{
             fontWeight: 300,

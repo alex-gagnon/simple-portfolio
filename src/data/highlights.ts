@@ -25,9 +25,9 @@ export const HIGHLIGHTS: StatCard[] = [
         detail: 'Python CI/CD test frameworks that gave teams the confidence to ship more often.',
     },
     {
-        stat: '11',
-        unit: 'SDETs led',
-        label: 'QE Marketplace',
-        detail: 'Enterprise AI plugin ecosystem for automated QA workflows, adopted across engineering.',
+        stat: '3',
+        unit: 'AI tools shipped',
+        label: 'MCP · RAG · Agents',
+        detail: 'Built internal AI tooling — MCP servers, RAG pipelines, and monitoring agents — that replaced hours of manual engineering work.',
     },
 ];
