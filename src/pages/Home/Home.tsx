@@ -10,7 +10,6 @@ import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
 import { SocialLinks } from '../../components/SocialLinks/SocialLinks';
 import { RevealSection } from '../../components';
 import { PROJECTS } from '../../data/projects';
-import './Home.scss';
 
 const panelSx: SxProps = {
     background: 'rgba(6, 18, 32, 0.45)',

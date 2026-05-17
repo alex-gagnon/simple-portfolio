@@ -3,7 +3,6 @@ import { Footer } from './components/Footer/Footer';
 import { theme } from './theme';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import './Portfolio.scss';
 import { AuroraBackground, HexGrid } from './components';
 
 
