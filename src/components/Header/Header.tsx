@@ -1,10 +1,9 @@
-import { AppBar, Box, Button, Container, IconButton, Link, Menu, MenuItem, Toolbar, Typography, Tooltip } from '@mui/material';
+import { AppBar, Box, Button, Container, Link, Menu, MenuItem, Toolbar, Typography, IconButton } from '@mui/material';
 import React from 'react';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { Logo } from '../Logo/Logo';
+import { SocialLinks } from '../SocialLinks/SocialLinks';
 
 const NAV_LINKS = [
     { label: 'About', href: '#about', sectionId: 'about' },
@@ -126,31 +125,8 @@ export const Header = () => {
                         })}
                     </Box>
 
-                    <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
-                        <Tooltip title="GitHub">
-                            <IconButton
-                                component="a"
-                                href="https://github.com/alex-gagnon"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                size="small"
-                                sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
-                            >
-                                <GitHubIcon />
-                            </IconButton>
-                        </Tooltip>
-                        <Tooltip title="LinkedIn">
-                            <IconButton
-                                component="a"
-                                href="https://www.linkedin.com/in/agagnon313/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                size="small"
-                                sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}
-                            >
-                                <LinkedInIcon />
-                            </IconButton>
-                        </Tooltip>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <SocialLinks />
                     </Box>
                 </Toolbar>
             </Container>

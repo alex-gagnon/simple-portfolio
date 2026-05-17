@@ -1,8 +1,15 @@
-export { Header } from './Header/Header';
-export { Card } from './Card/Card';
 export { AuroraBackground } from './AuroraBackground/AuroraBackground';
+export { Card } from './Card/Card';
+export { ContactForm } from './ContactForm/ContactForm';
+export { ExperienceTimeline } from './ExperienceTimeline/ExperienceTimeline';
+export { Header } from './Header/Header';
+export { Hero } from './Hero/Hero';
 export { HexGrid } from './HexGrid/HexGrid';
+export { Highlights } from './Highlights/Highlights';
+export { Footer } from './Footer/Footer';
 export { Logo } from './Logo/Logo';
 export { RevealSection } from './RevealSection/RevealSection';
-export { Footer } from './Footer/Footer';
+export { SectionHeading } from './SectionHeading/SectionHeading';
+export { SkillsGrid } from './SkillsGrid/SkillsGrid';
+export { SocialLinks } from './SocialLinks/SocialLinks';
 export type { Project } from './Card/Card';
