@@ -52,6 +52,7 @@ export const Header = () => {
                             edge="start"
                             color="inherit"
                             aria-label="menu"
+                            onClick={(e) => setAnchorElNav(e.currentTarget)}
                             sx={{ mr: 2 }}
                         >
                             <Typography>&#9776;</Typography>
@@ -97,7 +98,7 @@ export const Header = () => {
                                         my: 2,
                                         display: 'block',
                                         fontSize: buttonFontSize,
-                                        color: isActive ? '#1ba098' : 'rgba(222, 185, 146, 0.75)',
+                                        color: isActive ? '#1ba098' : 'rgba(200, 218, 235, 0.75)',
                                         fontWeight: isActive ? 700 : 400,
                                         position: 'relative',
                                         transition: 'color 0.2s ease',
