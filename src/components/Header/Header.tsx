@@ -66,6 +66,7 @@ export const Header = () => {
                             transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
+                            disableScrollLock
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
                             {NAV_LINKS.map(({ label, href }) => (
