@@ -4,7 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useActiveSection } from '../../hooks/useActiveSection';
-import { LogoMonogram, LogoAviation, LogoHex } from '../Logo/Logo';
+import { Logo } from '../Logo/Logo';
 
 const NAV_LINKS = [
     { label: 'About', href: '#about', sectionId: 'about' },
@@ -38,11 +38,8 @@ export const Header = () => {
         >
             <Container maxWidth={false}>
                 <Toolbar>
-                    {/* LOGO PREVIEW — pick A, B, or C then we'll clean this up */}
-                    <Box sx={{ mr: 5, display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-                        <Tooltip title="A — Monogram"><Box sx={{ cursor: 'pointer' }}><LogoMonogram /></Box></Tooltip>
-                        <Tooltip title="B — Aviation"><Box sx={{ cursor: 'pointer' }}><LogoAviation /></Box></Tooltip>
-                        <Tooltip title="C — Hex"><Box sx={{ cursor: 'pointer' }}><LogoHex /></Box></Tooltip>
+                    <Box sx={{ mr: 5, display: { xs: 'none', md: 'flex' } }}>
+                        <Logo size={50} />
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,8 +86,8 @@ export const Header = () => {
                         </Menu>
                     </Box>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, gap: 1.5, alignItems: 'center' }}>
-                        <LogoMonogram /><LogoAviation /><LogoHex />
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <Logo size={44} />
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

@@ -9,3 +9,15 @@ const mockIntersectionObserver = vi.fn(() => ({
 vi.stubGlobal('IntersectionObserver', mockIntersectionObserver);
 
 Object.defineProperty(window, 'scrollY', { value: 0, writable: true });
+
+Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: vi.fn((query: string) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+    })),
+});
