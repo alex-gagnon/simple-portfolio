@@ -4,53 +4,69 @@ import { Projects } from './Projects';
 import { PROJECTS } from '../../data/projects';
 import { MockTheme } from '../../MockTheme';
 
-
-test("title text is displayed", () => {
+test('Pilot Regs title is displayed', () => {
     render(
         <MockTheme>
             <Projects projects={PROJECTS} />
         </MockTheme>
-    )
-    const text = screen.getByText("title tbd")
-    expect(text).toBeInTheDocument()
-})
+    );
+    const text = screen.getByText('Pilot Regs');
+    expect(text).toBeInTheDocument();
+});
 
-test("description text is displayed", () => {
+test('Pilot Regs description text is displayed', () => {
     render(
         <MockTheme>
             <Projects projects={PROJECTS} />
         </MockTheme>
-    )
-    const text = screen.getByText("description tbd")
-    expect(text).toBeInTheDocument()
-})
+    );
+    const text = screen.getByText(
+        /FAA regulations are dense documents that pilots need fast access to/
+    );
+    expect(text).toBeInTheDocument();
+});
 
-test("stack text is displayed", () => {
+test('Pilot Regs stack items are displayed', () => {
     render(
         <MockTheme>
             <Projects projects={PROJECTS} />
         </MockTheme>
-    )
-    const text = screen.getByText("stack tbd")
-    expect(text).toBeInTheDocument()
-})
+    );
+    const pythonChips = screen.getAllByText('Python');
+    expect(pythonChips.length).toBeGreaterThan(0);
+    expect(screen.getByText('RAG')).toBeInTheDocument();
+    expect(screen.getByText('Vector Search')).toBeInTheDocument();
+    expect(screen.getByText('FastAPI')).toBeInTheDocument();
+});
 
-test('Demo button is displayed', () => {
+test('Demo button is displayed for projects with demo URLs', () => {
     render(
         <MockTheme>
             <Projects projects={PROJECTS} />
         </MockTheme>
-    )
-    const btn = screen.getByText("Demo")
-    expect(btn).toBeInTheDocument()
-})
+    );
+    const demoButtons = screen.getAllByText('Demo');
+    expect(demoButtons.length).toBeGreaterThan(0);
+});
 
-test('Github button is displayed', () => {
+test('Projects page title is displayed', () => {
     render(
         <MockTheme>
             <Projects projects={PROJECTS} />
         </MockTheme>
-    )
-    const btn = screen.getByText("Github")
-    expect(btn).toBeInTheDocument()
-})
+    );
+    const title = screen.getByText('Projects');
+    expect(title).toBeInTheDocument();
+});
+
+test('Multiple projects are rendered', () => {
+    render(
+        <MockTheme>
+            <Projects projects={PROJECTS} />
+        </MockTheme>
+    );
+    expect(screen.getByText('Personal AI Marketplace')).toBeInTheDocument();
+    expect(screen.getByText('Weather MCP Server')).toBeInTheDocument();
+    expect(screen.getByText('Midas')).toBeInTheDocument();
+    expect(screen.getByText('This Portfolio')).toBeInTheDocument();
+});

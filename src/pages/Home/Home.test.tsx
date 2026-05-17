@@ -13,3 +13,33 @@ test('renders about info', () => {
     const nameText = screen.getByText('Alex Gagnon');
     expect(nameText).toBeInTheDocument()
 });
+
+test('renders About Me section', () => {
+    render(
+        <MockTheme>
+            <Home />
+        </MockTheme>
+    )
+    const aboutHeading = screen.getByText('About Me');
+    expect(aboutHeading).toBeInTheDocument()
+});
+
+test('renders Highlights section', () => {
+    render(
+        <MockTheme>
+            <Home />
+        </MockTheme>
+    )
+    const highlightsHeading = screen.getByText('Highlights');
+    expect(highlightsHeading).toBeInTheDocument()
+});
+
+test('renders Skills & Tools section', () => {
+    render(
+        <MockTheme>
+            <Home />
+        </MockTheme>
+    )
+    const skillsHeading = screen.getByText('Skills & Tools');
+    expect(skillsHeading).toBeInTheDocument()
+});

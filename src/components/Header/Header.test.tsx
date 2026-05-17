@@ -3,23 +3,13 @@ import { render, screen } from '@testing-library/react';
 import { Header } from './Header';
 import { MockTheme } from '../../MockTheme';
 
-
-test('renders home', () => {
+test('renders nav links', () => {
   render(
     <MockTheme>
       <Header />
     </MockTheme>
-  )
-  const logoText = screen.getAllByText(/home/i)
-  expect(logoText).toHaveLength(2)
-});
-
-test('renders projects', () => {
-  render(
-    <MockTheme>
-      <Header />
-    </MockTheme>
-  )
-  const logoText = screen.getAllByText(/projects/i)
-  expect(logoText).toHaveLength(2)
+  );
+  expect(screen.getAllByText(/about/i).length).toBeGreaterThanOrEqual(1);
+  expect(screen.getAllByText(/projects/i).length).toBeGreaterThanOrEqual(1);
+  expect(screen.getAllByText(/contact/i).length).toBeGreaterThanOrEqual(1);
 });
