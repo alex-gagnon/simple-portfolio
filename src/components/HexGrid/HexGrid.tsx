@@ -101,6 +101,7 @@ export const HexGrid = () => {
         const onTouchMove = (e: TouchEvent) => {
             mouse.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         };
+        const onTouchEnd = () => { mouse.current = { x: -9999, y: -9999 }; };
 
         resize();
         window.addEventListener('resize', resize);
@@ -110,6 +111,7 @@ export const HexGrid = () => {
         } else {
             window.addEventListener('mousemove', onMouseMove);
             window.addEventListener('touchmove', onTouchMove, { passive: true });
+            window.addEventListener('touchend', onTouchEnd);
             raf.current = requestAnimationFrame(animate);
         }
 
@@ -118,6 +120,7 @@ export const HexGrid = () => {
             window.removeEventListener('resize', resize);
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('touchmove', onTouchMove);
+            window.removeEventListener('touchend', onTouchEnd);
         };
     }, [reducedMotion]);
 
