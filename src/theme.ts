@@ -5,6 +5,7 @@ const { palette } = createTheme()
 
 export const theme = createTheme({
     typography: {
+        htmlFontSize: 16,
         fontFamily: "'Inter', sans-serif",
         h1: { fontFamily: "'Playfair Display', serif" },
         h2: { fontFamily: "'Playfair Display', serif" },
@@ -12,6 +13,13 @@ export const theme = createTheme({
         h4: { fontFamily: "'Playfair Display', serif" },
         h5: { fontFamily: "'Playfair Display', serif" },
         h6: { fontFamily: "'Playfair Display', serif" },
+        body1: {
+            fontSize: '1.0625rem', // 17px
+            lineHeight: 1.85,
+        },
+        body2: {
+            fontSize: '0.9375rem', // 15px
+        },
     },
     palette: {
         sleepyText: palette.augmentColor({

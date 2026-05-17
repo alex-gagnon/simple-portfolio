@@ -13,7 +13,12 @@ const Portfolio = () => {
             <AuroraBackground />
             <HexGrid />
             <Header />
-            <Container component="main" maxWidth="xl" sx={{ position: 'relative', zIndex: 1, px: { xs: 2, sm: 3, md: 5, lg: 8 } }}>
+            <Container component="main" maxWidth={false} sx={{
+                position: 'relative', zIndex: 1,
+                px: { xs: 2, sm: 3, md: 4, lg: 5, xl: 7 },
+                maxWidth: { xs: '100%', xl: '1900px' },
+                mx: 'auto',
+            }}>
                 <CssBaseline />
                 <Outlet />
             </Container>

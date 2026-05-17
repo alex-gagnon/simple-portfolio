@@ -37,7 +37,7 @@ export const Highlights = () => (
                                 }}>
                                     {card.stat}
                                 </Typography>
-                                <Typography sx={{ color: 'rgba(200,218,235,0.55)', fontSize: '0.85rem', fontWeight: 300 }}>
+                                <Typography sx={{ color: 'rgba(200,218,235,0.55)', fontSize: '0.9rem', fontWeight: 300 }}>
                                     {card.unit}
                                 </Typography>
                             </Box>
@@ -45,14 +45,13 @@ export const Highlights = () => (
                                 mb: 1.25,
                                 backgroundColor: 'rgba(27, 160, 152, 0.15)',
                                 color: '#1ba098',
-                                fontSize: '0.72rem',
+                                fontSize: '0.75rem',
                                 fontWeight: 600,
                                 border: '1px solid rgba(27, 160, 152, 0.25)',
                             }} />
                             <Typography variant='body2' sx={{
-                                color: 'rgba(200, 218, 235, 0.65)',
-                                lineHeight: 1.6,
-                                fontSize: '0.82rem',
+                                color: 'rgba(200, 218, 235, 0.7)',
+                                lineHeight: 1.65,
                             }}>
                                 {card.detail}
                             </Typography>

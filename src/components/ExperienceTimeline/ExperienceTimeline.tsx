@@ -5,7 +5,7 @@ import { RevealSection } from '../RevealSection/RevealSection';
 import { EXPERIENCE } from '../../data/experience';
 
 export const ExperienceTimeline = () => (
-    <Box id="experience" sx={{ mb: 10 }}>
+    <Box id="experience">
         <RevealSection>
             <SectionHeading>Experience</SectionHeading>
         </RevealSection>
@@ -43,17 +43,17 @@ export const ExperienceTimeline = () => (
                             </Box>
                             <Box sx={{ flex: 1, pb: 1 }}>
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: { xs: 0.5, sm: 1.5 }, mb: 0.5 }}>
-                                    <Typography sx={{ color: '#f0c050', fontWeight: 700, fontSize: { xs: '1rem', md: '1.05rem' } }}>
+                                    <Typography sx={{ color: '#f0c050', fontWeight: 700, fontSize: { xs: '1.05rem', md: '1.15rem' } }}>
                                         {job.title}
                                     </Typography>
-                                    <Typography sx={{ color: '#1ba098', fontSize: '0.9rem', fontWeight: 500 }}>
+                                    <Typography sx={{ color: '#1ba098', fontSize: '1rem', fontWeight: 500 }}>
                                         {job.company}
                                     </Typography>
                                 </Box>
-                                <Typography sx={{ color: 'rgba(200,218,235,0.45)', fontSize: '0.8rem', mb: 1.5 }}>
+                                <Typography sx={{ color: 'rgba(200,218,235,0.5)', fontSize: '0.875rem', mb: 1.5 }}>
                                     {job.period}
                                 </Typography>
-                                <Typography sx={{ color: 'rgba(200,218,235,0.75)', fontSize: '0.9rem', lineHeight: 1.8 }}>
+                                <Typography variant='body1' sx={{ color: 'rgba(200,218,235,0.8)' }}>
                                     {job.description}
                                 </Typography>
                             </Box>

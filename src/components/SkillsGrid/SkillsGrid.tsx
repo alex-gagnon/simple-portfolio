@@ -5,7 +5,7 @@ import { RevealSection } from '../RevealSection/RevealSection';
 import { SKILLS } from '../../data/skills';
 
 export const SkillsGrid = () => (
-    <Box sx={{ mb: 10 }}>
+    <Box>
         <RevealSection>
             <SectionHeading>Skills & Tools</SectionHeading>
         </RevealSection>
@@ -28,15 +28,15 @@ export const SkillsGrid = () => (
                                 borderLeft: '3px solid #1ba098',
                             },
                         }}>
-                            <Typography variant='h6' sx={{ color: '#f0c050', fontWeight: 'bold', mb: 1.5, fontSize: '0.95rem' }}>
+                            <Typography variant='h6' sx={{ color: '#f0c050', fontWeight: 'bold', mb: 1.5, fontSize: '1rem' }}>
                                 {category}
                             </Typography>
                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
                                 {items.map((item) => (
                                     <Chip key={item} label={item} size='small' sx={{
                                         backgroundColor: 'rgba(200, 218, 235, 0.08)',
-                                        color: 'rgba(200, 218, 235, 0.85)',
-                                        fontSize: '0.8rem',
+                                        color: 'rgba(200, 218, 235, 0.9)',
+                                        fontSize: '0.875rem',
                                         border: '1px solid rgba(200, 218, 235, 0.15)',
                                     }} />
                                 ))}
