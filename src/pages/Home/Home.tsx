@@ -1,5 +1,5 @@
-import { Box, Button, Typography, Grid, Paper, Chip, IconButton, Tooltip } from "@mui/material";
-import React from "react";
+import { Box, Button, Typography, Grid, Paper, Chip, IconButton, Tooltip, TextField, CircularProgress } from "@mui/material";
+import React, { useState } from "react";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
@@ -101,6 +101,120 @@ const statCards = [
         detail: 'Enterprise AI plugin ecosystem for automated QA workflows, adopted across engineering.',
     },
 ];
+
+const fieldSx = {
+    '& .MuiOutlinedInput-root': {
+        color: '#e8eef4',
+        backgroundColor: 'rgba(255,255,255,0.03)',
+        '& fieldset': { borderColor: 'rgba(200,218,235,0.15)' },
+        '&:hover fieldset': { borderColor: 'rgba(200,218,235,0.3)' },
+        '&.Mui-focused fieldset': { borderColor: '#1ba098' },
+    },
+    '& .MuiInputLabel-root': { color: 'rgba(200,218,235,0.5)' },
+    '& .MuiInputLabel-root.Mui-focused': { color: '#1ba098' },
+};
+
+const ContactForm = () => {
+    const [fields, setFields] = useState({ name: '', email: '', message: '' });
+    const [submitting, setSubmitting] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+        setFields(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmitting(true);
+        setError(null);
+        try {
+            const res = await fetch('https://submit-form.com/0SwfHtWCf', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify(fields),
+            });
+            if (!res.ok) throw new Error('Submission failed');
+            setSubmitted(true);
+        } catch {
+            setError('Something went wrong — try emailing admin@alex-gagnon.com directly.');
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    if (submitted) {
+        return (
+            <Paper sx={{
+                p: 4,
+                backgroundColor: 'rgba(27,160,152,0.08)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(27,160,152,0.3)',
+                borderRadius: 2,
+                textAlign: 'center',
+            }}>
+                <Typography sx={{ color: '#1ba098', fontSize: '1.5rem', mb: 1 }}>✓</Typography>
+                <Typography sx={{ color: '#e8eef4', fontWeight: 600, mb: 1 }}>Message sent!</Typography>
+                <Typography sx={{ color: 'rgba(200,218,235,0.65)', fontSize: '0.9rem' }}>
+                    Thanks for reaching out — I'll get back to you soon.
+                </Typography>
+            </Paper>
+        );
+    }
+
+    return (
+        <Paper
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{
+                p: { xs: 3, md: 4 },
+                backgroundColor: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                borderRadius: 2,
+                boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2.5,
+            }}
+        >
+            {/* honeypot */}
+            <input type="text" name="_honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField fullWidth label="Name" name="name" required
+                        value={fields.name} onChange={handleChange} sx={fieldSx} />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField fullWidth label="Email" name="email" type="email" required
+                        value={fields.email} onChange={handleChange} sx={fieldSx} />
+                </Grid>
+            </Grid>
+            <TextField fullWidth label="Message" name="message" required multiline rows={5}
+                value={fields.message} onChange={handleChange} sx={fieldSx} />
+
+            {error && (
+                <Typography sx={{ color: '#f87171', fontSize: '0.85rem' }}>{error}</Typography>
+            )}
+
+            <Button
+                type="submit"
+                variant="outlined"
+                disabled={submitting}
+                sx={{
+                    alignSelf: 'flex-start',
+                    color: '#1ba098',
+                    borderColor: '#1ba098',
+                    px: 4,
+                    '&:hover': { backgroundColor: 'rgba(27,160,152,0.1)', borderColor: '#1ba098' },
+                    '&.Mui-disabled': { borderColor: 'rgba(27,160,152,0.3)', color: 'rgba(27,160,152,0.4)' },
+                }}
+            >
+                {submitting ? <CircularProgress size={20} sx={{ color: '#1ba098' }} /> : 'Send message'}
+            </Button>
+        </Paper>
+    );
+};
 
 export const Home = () => {
     const skills = {
@@ -430,36 +544,31 @@ export const Home = () => {
             <Box id="contact">
                 <RevealSection>
                     <SectionHeading>Get In Touch</SectionHeading>
-                    <Grid container spacing={4} alignItems="center">
-                        <Grid item xs={12} lg={6}>
-                            <Typography variant='body1' sx={{ lineHeight: 1.9, fontSize: '1.05rem', maxWidth: '520px' }}>
+                    <Grid container spacing={6} alignItems="flex-start">
+                        <Grid item xs={12} lg={5}>
+                            <Typography variant='body1' sx={{ lineHeight: 1.9, fontSize: '1.05rem', mb: 4 }}>
                                 Want to talk shop about automation, AI tooling, or QA strategy?
                                 I'm always up for a good engineering conversation.
                             </Typography>
-                        </Grid>
-                        <Grid item xs={12} lg={6}>
-                            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-                                <Tooltip title="Email">
-                                    <IconButton component="a" href="mailto:admin@alex-gagnon.com"
-                                        sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}>
-                                        <EmailIcon sx={{ fontSize: 28 }} />
-                                    </IconButton>
-                                </Tooltip>
+                            <Box sx={{ display: 'flex', gap: 1.5 }}>
                                 <Tooltip title="GitHub">
                                     <IconButton component="a" href="https://github.com/alex-gagnon"
                                         target="_blank" rel="noopener noreferrer"
                                         sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}>
-                                        <GitHubIcon sx={{ fontSize: 28 }} />
+                                        <GitHubIcon sx={{ fontSize: 26 }} />
                                     </IconButton>
                                 </Tooltip>
                                 <Tooltip title="LinkedIn">
                                     <IconButton component="a" href="https://www.linkedin.com/in/agagnon313/"
                                         target="_blank" rel="noopener noreferrer"
                                         sx={{ color: '#1ba098', '&:hover': { color: '#f0c050' } }}>
-                                        <LinkedInIcon sx={{ fontSize: 28 }} />
+                                        <LinkedInIcon sx={{ fontSize: 26 }} />
                                     </IconButton>
                                 </Tooltip>
                             </Box>
+                        </Grid>
+                        <Grid item xs={12} lg={7}>
+                            <ContactForm />
                         </Grid>
                     </Grid>
                 </RevealSection>
