@@ -1,19 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 
-const HEX_SIZE = 46;        // circumradius — controls grid density
-const GAP = 2;              // px gap between hexagons
-const GLOW_RADIUS = 140;    // px — how far the cursor influence spreads
-const DECAY = 0.96;         // per-frame brightness falloff (lower = faster fade)
-const BOOST = 0.18;         // how fast a hex brightens per frame when near cursor
-const MAX_BRIGHT = 0.38;    // peak fill opacity
-const BASE_STROKE = 0.055;  // always-visible faint outline opacity
+const HEX_SIZE = 46;
+const GAP = 2;
+const GLOW_RADIUS = 140;
+const DECAY = 0.96;
+const BOOST = 0.18;
+const MAX_BRIGHT = 0.38;
+const BASE_STROKE = 0.055;
 
-interface Hex { cx: number; cy: number; b: number }
+interface Hex { cx: number; cy: number; b: number; hue: number }
 
 function hexPath(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number) {
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
-        const a = (Math.PI / 3) * i - Math.PI / 6; // pointy-top
+        const a = (Math.PI / 3) * i - Math.PI / 6;
         const x = cx + r * Math.cos(a);
         const y = cy + r * Math.sin(a);
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
@@ -23,15 +23,18 @@ function hexPath(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: numbe
 
 function buildGrid(w: number, h: number): Hex[] {
     const hexes: Hex[] = [];
-    const col_w = Math.sqrt(3) * HEX_SIZE;
-    const row_h = HEX_SIZE * 1.5;
-    const cols = Math.ceil(w / col_w) + 2;
-    const rows = Math.ceil(h / row_h) + 2;
+    const colW = Math.sqrt(3) * HEX_SIZE;
+    const rowH = HEX_SIZE * 1.5;
+    const cols = Math.ceil(w / colW) + 2;
+    const rows = Math.ceil(h / rowH) + 2;
     for (let row = -1; row < rows; row++) {
         for (let col = -1; col < cols; col++) {
-            const cx = col * col_w + (row % 2) * (col_w / 2);
-            const cy = row * row_h;
-            hexes.push({ cx, cy, b: 0 });
+            const cx = col * colW + (row % 2) * (colW / 2);
+            const cy = row * rowH;
+            // Map position to hue: teal(178°) top-left → blue(220°) center → purple(268°) bottom-right
+            const t = Math.max(0, Math.min(1, (cx / w) * 0.55 + (cy / h) * 0.45));
+            const hue = Math.round(178 + t * 90);
+            hexes.push({ cx, cy, b: 0, hue });
         }
     }
     return hexes;
@@ -60,7 +63,7 @@ export const HexGrid = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (const h of hexes.current) {
                 hexPath(ctx, h.cx, h.cy, HEX_SIZE - GAP);
-                ctx.strokeStyle = `rgba(27,160,152,${BASE_STROKE})`;
+                ctx.strokeStyle = `hsla(${h.hue},75%,52%,${BASE_STROKE})`;
                 ctx.lineWidth = 0.75;
                 ctx.stroke();
             }
@@ -84,11 +87,11 @@ export const HexGrid = () => {
                 hexPath(ctx, h.cx, h.cy, HEX_SIZE - GAP);
 
                 if (h.b > 0.004) {
-                    ctx.fillStyle = `rgba(27,160,152,${h.b * 0.55})`;
+                    ctx.fillStyle = `hsla(${h.hue},75%,52%,${(h.b * 0.55).toFixed(3)})`;
                     ctx.fill();
-                    ctx.strokeStyle = `rgba(27,160,152,${Math.max(h.b * 1.8, BASE_STROKE)})`;
+                    ctx.strokeStyle = `hsla(${h.hue},80%,58%,${Math.max(h.b * 1.8, BASE_STROKE).toFixed(3)})`;
                 } else {
-                    ctx.strokeStyle = `rgba(27,160,152,${BASE_STROKE})`;
+                    ctx.strokeStyle = `hsla(${h.hue},75%,52%,${BASE_STROKE})`;
                 }
                 ctx.lineWidth = 0.75;
                 ctx.stroke();
