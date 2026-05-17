@@ -1,0 +1,15 @@
+<svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="26,2 48.5,14.5 48.5,37.5 26,50 3.5,37.5 3.5,14.5"
+    fill="#060c14" stroke="#1ba098" stroke-width="1.5"/>
+  <polygon points="26,8 43,17.5 43,34.5 26,44 9,34.5 9,17.5"
+    fill="none" stroke="#1ba098" stroke-width="0.75" opacity="0.2"/>
+  <circle cx="26"   cy="2"    r="1.5" fill="#1ba098"/>
+  <circle cx="26"   cy="50"   r="1.5" fill="#1ba098"/>
+  <circle cx="3.5"  cy="14.5" r="1.5" fill="#1ba098" opacity="0.5"/>
+  <circle cx="48.5" cy="14.5" r="1.5" fill="#1ba098" opacity="0.5"/>
+  <circle cx="3.5"  cy="37.5" r="1.5" fill="#1ba098" opacity="0.5"/>
+  <circle cx="48.5" cy="37.5" r="1.5" fill="#1ba098" opacity="0.5"/>
+  <text x="26" y="33" text-anchor="middle"
+    font-family="Inter, sans-serif" font-size="16" font-weight="700"
+    fill="#f0c050" letter-spacing="2">AG</text>
+</svg>

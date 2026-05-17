@@ -1,9 +1,13 @@
 html body {
   height: 100vh;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 main {
   min-height: 85vh;
   font-size: calc(10px + 2vmin);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
 }

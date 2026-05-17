@@ -4,15 +4,21 @@ import { theme } from './theme';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import './Portfolio.scss';
-import { ParticlesComponent } from './components';
+import { AuroraBackground, HexGrid } from './components';
 
 
 const Portfolio = () => {
     return (
         <ThemeProvider theme={theme}>
-            <ParticlesComponent />
+            <AuroraBackground />
+            <HexGrid />
             <Header />
-            <Container component="main" maxWidth="lg" sx={{ position: 'relative' }}>
+            <Container component="main" maxWidth={false} sx={{
+                position: 'relative', zIndex: 1,
+                px: { xs: 2, sm: 3, md: 4, lg: 5, xl: 7 },
+                maxWidth: { xs: '100%', xl: '1900px' },
+                mx: 'auto',
+            }}>
                 <CssBaseline />
                 <Outlet />
             </Container>

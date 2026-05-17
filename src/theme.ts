@@ -4,11 +4,28 @@ import { createTheme } from "@mui/material/styles";
 const { palette } = createTheme()
 
 export const theme = createTheme({
+    typography: {
+        htmlFontSize: 16,
+        fontFamily: "'Inter', sans-serif",
+        h1: { fontFamily: "'Playfair Display', serif" },
+        h2: { fontFamily: "'Playfair Display', serif" },
+        h3: { fontFamily: "'Playfair Display', serif" },
+        h4: { fontFamily: "'Playfair Display', serif" },
+        h5: { fontFamily: "'Playfair Display', serif" },
+        h6: { fontFamily: "'Playfair Display', serif" },
+        body1: {
+            fontSize: '1.125rem', // 18px
+            lineHeight: 1.85,
+        },
+        body2: {
+            fontSize: '1rem', // 16px
+        },
+    },
     palette: {
         sleepyText: palette.augmentColor({
             color: {
-                main: '#deb992'
-            } 
+                main: '#e8eef4'
+            }
         }),
 
         sleepyBackground: {
