@@ -52,26 +52,6 @@ On every merge to `main`, GitHub Actions runs tests, builds the project, and dep
 - **Dev workflow** (`dev.js.yml`): runs on all non-main branches — installs, tests, uploads coverage to Codecov
 - **Prod workflow** (`prod.js.yml`): runs on `main` — same as dev, plus build and deploy
 
-## Code Review Notes
-
-The following issues were identified and fixed as part of a code review:
-
-### Fixed
-
-| Severity | File | Issue |
-|----------|------|-------|
-| High | `src/components/ContactForm/ContactForm.tsx` | Hardcoded form endpoint moved to `VITE_FORMSPARK_URL` env variable |
-| High | `src/components/ContactForm/ContactForm.tsx` | Added client-side input validation (name, email format, message length ≤ 2000 chars) |
-| Medium | `src/components/ContactForm/ContactForm.tsx` | Bare `catch {}` replaced with `catch (err)` + `console.error` |
-| Medium | `src/MockTheme.tsx` | `children: any` replaced with `children: React.ReactNode` |
-| Medium | `src/Portfolio.tsx` | Added `<ErrorBoundary>` wrapper to prevent full-page crashes |
-
-### Remaining / Watch Items
-
-- **Test coverage gaps**: Footer, Logo, SocialLinks, Highlights, and RevealSection components lack tests
-- **Inconsistent test patterns**: some test files use `describe`, others use bare `test()` — worth standardizing
-- **No accessibility CI check**: consider adding axe-core or Lighthouse CI to the workflow
-
 ## Resources
 
 - [Configuring a custom domain for GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
