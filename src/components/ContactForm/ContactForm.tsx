@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, CircularProgress, Grid, Paper, TextField, Typography } from '@mui/material';
 
-const FORMSPARK_URL = 'https://submit-form.com/0SwfHtWCf';
+const FORMSPARK_URL = import.meta.env.VITE_FORMSPARK_URL as string;
 
 const fieldSx = {
     '& .MuiOutlinedInput-root': {
@@ -27,8 +27,19 @@ export const ContactForm = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
         setFields(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
+    const validate = (): string | null => {
+        if (!fields.name.trim()) return 'Name is required.';
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRe.test(fields.email.trim())) return 'A valid email address is required.';
+        if (!fields.message.trim()) return 'Message is required.';
+        if (fields.message.length > 2000) return 'Message must be 2000 characters or fewer.';
+        return null;
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const validationError = validate();
+        if (validationError) { setError(validationError); return; }
         setSubmitting(true);
         setError(null);
         try {
@@ -39,7 +50,8 @@ export const ContactForm = () => {
             });
             if (!res.ok) throw new Error('Submission failed');
             setSubmitted(true);
-        } catch {
+        } catch (err) {
+            console.error('ContactForm submission error:', err);
             setError('Something went wrong — try emailing admin@alex-gagnon.com directly.');
         } finally {
             setSubmitting(false);

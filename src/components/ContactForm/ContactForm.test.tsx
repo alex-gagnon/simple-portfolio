@@ -39,6 +39,9 @@ describe('ContactForm', () => {
         global.fetch = vi.fn().mockResolvedValueOnce({ ok: false });
         renderForm();
 
+        fireEvent.change(screen.getByLabelText(/name/i), { target: { name: 'name', value: 'Alex' } });
+        fireEvent.change(screen.getByLabelText(/email/i), { target: { name: 'email', value: 'a@b.com' } });
+        fireEvent.change(screen.getByLabelText(/message/i), { target: { name: 'message', value: 'Hello' } });
         fireEvent.submit(screen.getByRole('button', { name: /send message/i }).closest('form')!);
 
         await waitFor(() => expect(screen.getByText(/something went wrong/i)).toBeInTheDocument());
