@@ -75,7 +75,7 @@ describe('<Card />', () => {
                 <Card {...testCardWithButtons} />
             </MockTheme>
         );
-        const text = screen.getByText('Github');
+        const text = screen.getByText('GitHub');
         expect(text).toBeInTheDocument();
     });
 
