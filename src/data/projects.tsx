@@ -10,11 +10,10 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     title: "Pilot Regs",
-    description: "FAA regulations are dense documents that pilots need fast access to in training and flight planning. Building a RAG application that ingests regulation documents, indexes via vector search, and surfaces contextual answers — turning a 20-minute manual search into a 30-second query.",
+    description: "FAA regulations are dense documents that pilots need fast access to during training and flight planning. Built a full-stack RAG application with cert-level metadata filtering, streaming SSE responses, and a custom FAR/AIM ingestion pipeline — turning a 20-minute manual search into a 30-second query.",
     demo: "https://pilotregs.com",
     github: "",
-    stack: "Python · RAG · Vector Search · FastAPI",
-    inProgress: true,
+    stack: "Next.js · TypeScript · FastAPI · Claude API · pgvector · Supabase · Docker",
   },
   {
     title: "Personal AI Marketplace",

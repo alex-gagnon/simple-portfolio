@@ -4,14 +4,7 @@ import { useScrolled } from '../../hooks/useScrolled';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { Logo } from '../Logo/Logo';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
-
-const NAV_LINKS = [
-    { label: 'About', href: '#about', sectionId: 'about' },
-    { label: 'Experience', href: '#experience', sectionId: 'experience' },
-    { label: 'Projects', href: '#projects', sectionId: 'projects' },
-    { label: 'Contact', href: '#contact', sectionId: 'contact' },
-];
-const SECTION_IDS = NAV_LINKS.map(n => n.sectionId);
+import { NAV_LINKS, SECTION_IDS } from '../../constants/nav';
 const buttonFontSize = 18;
 
 export const Header = () => {
