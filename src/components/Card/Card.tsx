@@ -108,12 +108,16 @@ export const Card: FC<Project> = ({
                         href={demo}
                         target="_blank"
                         rel="noopener noreferrer"
+                        variant="outlined"
                         size="small"
                         sx={{
                             color: '#1ba098',
+                            borderColor: 'rgba(27, 160, 152, 0.5)',
                             textTransform: 'none',
+                            fontWeight: 500,
                             '&:hover': {
                                 backgroundColor: 'rgba(27, 160, 152, 0.1)',
+                                borderColor: '#1ba098',
                             },
                         }}
                     >
@@ -125,16 +129,20 @@ export const Card: FC<Project> = ({
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        variant="outlined"
                         size="small"
                         sx={{
                             color: '#1ba098',
+                            borderColor: 'rgba(27, 160, 152, 0.5)',
                             textTransform: 'none',
+                            fontWeight: 500,
                             '&:hover': {
                                 backgroundColor: 'rgba(27, 160, 152, 0.1)',
+                                borderColor: '#1ba098',
                             },
                         }}
                     >
-                        Github
+                        GitHub
                     </Button>
                 )}
             </CardActions>
