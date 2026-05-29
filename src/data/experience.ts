@@ -10,7 +10,7 @@ export const EXPERIENCE: Job[] = [
         title: 'Manager, QA Automation',
         company: 'Vestmark',
         period: 'Feb 2024 – Present',
-        description: 'Manage and mentor a team of 11 engineers across multiple financial services products, owning automation strategy, roadmap development, and cross-functional alignment with leadership and stakeholders. Created the QE Marketplace — an enterprise repository of AI-powered automation plugins designed to help teams automate their workflows regardless of technical ability — with training sessions and demos across engineering to drive adoption. Led initiatives to redesign processes through AI-augmented workflows with human-in-the-loop review, and directed development of an AI-powered monitoring tool that automated hours of daily manual work, saving ~100 hours per month.',
+        description: 'Manage and mentor a team of 11 engineers across multiple financial services products, owning automation strategy, roadmap development, and cross-functional alignment with leadership and stakeholders. Created the QE Marketplace, an enterprise repository of AI-powered automation plugins designed to help teams automate their workflows regardless of technical ability, with training sessions and demos across engineering to drive adoption. Led initiatives to redesign processes through AI-augmented workflows with human-in-the-loop review, and directed development of an AI-powered monitoring tool that automated hours of daily manual work, saving ~100 hours per month.',
     },
     {
         title: 'Team Lead, QA Automation',

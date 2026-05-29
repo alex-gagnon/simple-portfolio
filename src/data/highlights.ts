@@ -16,7 +16,7 @@ export const HIGHLIGHTS: StatCard[] = [
         stat: '700+',
         unit: 'API tests',
         label: 'Delivered in 4 months',
-        detail: 'Surfaced 30 previously undetected bugs — 5 of them critical — before they hit production.',
+        detail: 'Surfaced 30 previously undetected bugs (5 of them critical) before they hit production.',
     },
     {
         stat: '40%',
@@ -28,6 +28,6 @@ export const HIGHLIGHTS: StatCard[] = [
         stat: '3',
         unit: 'AI tools shipped',
         label: 'MCP · RAG · Agents',
-        detail: 'Built internal AI tooling — MCP servers, RAG pipelines, and monitoring agents — that replaced hours of manual engineering work.',
+        detail: 'Built internal AI tooling (MCP servers, RAG pipelines, and monitoring agents) that replaced hours of manual engineering work.',
     },
 ];

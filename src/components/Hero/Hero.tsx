@@ -43,7 +43,7 @@ export const Hero = () => (
             color: 'rgba(200, 218, 235, 0.88)',
         }}>
             I architect automation systems and AI-augmented workflows that make engineering teams faster.
-            Currently leading a team of 11 SDETs at Vestmark — building the tools that eliminate the toil
+            Currently leading a team of 11 SDETs at Vestmark, building the tools that eliminate the toil
             between developers and production.
         </Typography>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, position: 'relative', zIndex: 1 }}>
@@ -59,7 +59,7 @@ export const Hero = () => (
                     color: '#1ba098', borderColor: '#1ba098',
                     '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
                 }}>
-                Resume — Lead
+                Resume: Lead
             </Button>
             <Button variant='outlined' size='large'
                 href='/Alex_Gagnon_Resume_IC_Port.docx.pdf'
@@ -69,7 +69,7 @@ export const Hero = () => (
                     color: '#1ba098', borderColor: 'rgba(27,160,152,0.5)',
                     '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
                 }}>
-                Resume — IC
+                Resume: IC
             </Button>
         </Box>
     </Box>

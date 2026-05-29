@@ -32,17 +32,17 @@ export const Home = () => (
                     <Grid item xs={12} lg={6}>
                         <SectionHeading>About Me</SectionHeading>
                         <Typography variant='body1'>
-                            These days I'm deep in the intersection of AI tooling and developer productivity —
+                            These days I'm deep in the intersection of AI tooling and developer productivity,
                             building MCP servers, RAG pipelines, and agents that turn hours of manual work into minutes.
                         </Typography>
                         <Typography variant='body1' sx={{ mt: 2.5 }}>
-                            I've spent 8+ years helping engineering teams ship with more confidence and less friction —
-                            from writing test frameworks from scratch at a startup, to now directing automation strategy
+                            I've spent 8+ years helping engineering teams ship with more confidence and less friction,
+                            from writing test frameworks from scratch at a startup to directing automation strategy
                             across a full QA organization.
                         </Typography>
                         <Typography variant='body1' sx={{ mt: 2.5 }}>
-                            Outside of work I fly small planes — earned my PPL and working toward the instrument rating
-                            next. I've also taken up bookbinding and blacksmithing: two crafts that scratch the same itch
+                            Outside of work I fly small planes. I've earned my PPL and am working toward my instrument
+                            rating. I've also taken up bookbinding and blacksmithing: two crafts that scratch the same itch
                             as engineering, just with leather and steel instead of code.
                         </Typography>
                     </Grid>
