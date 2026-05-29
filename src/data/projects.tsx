@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
     description: "FAA regulations are dense documents that pilots need fast access to during training and flight planning. Built a full-stack RAG application with cert-level metadata filtering, streaming SSE responses, and a custom FAR/AIM ingestion pipeline, turning a 20-minute manual search into a 30-second query. Indexes the complete FAR documentation (thousands of pages of regulatory content) with plans to expand to the AIM. Built as a licensed pilot scratching my own itch, now exploring a subscription model.",
     demo: "https://pilotregs.com",
     github: "",
-    stack: "Next.js · TypeScript · FastAPI · Claude API · pgvector · Supabase · Docker",
+    stack: "Next.js · TypeScript · FastAPI · Claude API · pgvector · Supabase · Docker · Playwright",
   },
   {
     title: "Personal AI Marketplace",
@@ -34,6 +34,6 @@ export const PROJECTS: Project[] = [
     description: "Built and deployed this site using React, TypeScript, and Material-UI, automated via GitHub Actions CI/CD pipeline to a custom domain. Because engineers should dogfood their own deployment pipelines.",
     demo: "https://alex-gagnon.com",
     github: "https://github.com/alex-gagnon/simple-portfolio",
-    stack: "React · TypeScript · Material-UI · GitHub Actions",
+    stack: "React · TypeScript · Material-UI · GitHub Actions · Playwright",
   },
 ];
