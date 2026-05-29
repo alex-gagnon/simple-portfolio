@@ -42,7 +42,7 @@ export const Home = () => (
                         </Typography>
                         <Typography variant='body1' sx={{ mt: 2.5 }}>
                             Outside of work I fly small planes. I've earned my PPL and am working toward my instrument
-                            rating. I've also taken up bookbinding and blacksmithing: two crafts that scratch the same itch
+                            rating. I've also taken up bookbinding and blacksmithing - two crafts that scratch the same itch
                             as engineering, just with leather and steel instead of code.
                         </Typography>
                     </Grid>
