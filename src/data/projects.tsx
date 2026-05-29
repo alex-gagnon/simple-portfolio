@@ -31,9 +31,9 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "This Portfolio",
-    description: "Built and deployed this site using React, TypeScript, and Material-UI, automated via GitHub Actions CI/CD pipeline to a custom domain. Because engineers should dogfood their own deployment pipelines.",
+    description: "Built with React, TypeScript, and Material-UI. Deployed to a custom domain via GitHub Actions CI/CD.",
     demo: "https://alex-gagnon.com",
     github: "https://github.com/alex-gagnon/simple-portfolio",
-    stack: "React · TypeScript · Material-UI · GitHub Actions · Playwright",
+    stack: "React · TypeScript · Material-UI · Vite · Vitest · Playwright · GitHub Actions",
   },
 ];
