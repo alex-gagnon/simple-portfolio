@@ -31,7 +31,7 @@ export const Header = () => {
             <Container maxWidth={false}>
                 <Toolbar>
                     <Box component="a" href="/" sx={{ mr: 5, display: { xs: 'none', md: 'flex' }, lineHeight: 0 }}>
-                        <Logo size={58} />
+                        <Logo size={72} />
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -79,7 +79,7 @@ export const Header = () => {
                     </Box>
 
                     <Box component="a" href="/" sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, lineHeight: 0 }}>
-                        <Logo size={50} />
+                        <Logo size={60} />
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
