@@ -59,7 +59,7 @@ export const Hero = () => (
                     color: '#1ba098', borderColor: '#1ba098',
                     '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
                 }}>
-                Resume: Lead
+                Resume - Lead
             </Button>
             <Button variant='outlined' size='large'
                 href='/Alex_Gagnon_Resume_IC_Port.docx.pdf'
@@ -69,7 +69,7 @@ export const Hero = () => (
                     color: '#1ba098', borderColor: 'rgba(27,160,152,0.5)',
                     '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
                 }}>
-                Resume: IC
+                Resume - IC
             </Button>
         </Box>
     </Box>
