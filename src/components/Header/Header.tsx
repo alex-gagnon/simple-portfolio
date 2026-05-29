@@ -29,7 +29,7 @@ export const Header = () => {
             }}
         >
             <Container maxWidth={false}>
-                <Toolbar>
+                <Toolbar sx={{ py: 1.5 }}>
                     <Box component="a" href="/" sx={{ mr: 5, display: { xs: 'none', md: 'flex' }, lineHeight: 0 }}>
                         <Logo size={72} />
                     </Box>
