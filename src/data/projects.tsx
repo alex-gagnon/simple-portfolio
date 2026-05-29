@@ -10,37 +10,30 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     title: "Pilot Regs",
-    description: "FAA regulations are dense documents that pilots need fast access to during training and flight planning. Built a full-stack RAG application with cert-level metadata filtering, streaming SSE responses, and a custom FAR/AIM ingestion pipeline — turning a 20-minute manual search into a 30-second query.",
+    description: "FAA regulations are dense documents that pilots need fast access to during training and flight planning. Built a full-stack RAG application with cert-level metadata filtering, streaming SSE responses, and a custom FAR/AIM ingestion pipeline, turning a 20-minute manual search into a 30-second query. Indexes the complete FAR documentation (thousands of pages of regulatory content) with plans to expand to the AIM. Built as a licensed pilot scratching my own itch, now exploring a subscription model.",
     demo: "https://pilotregs.com",
     github: "",
-    stack: "Next.js · TypeScript · FastAPI · Claude API · pgvector · Supabase · Docker",
+    stack: "Next.js · TypeScript · FastAPI · Claude API · pgvector · Supabase · Docker · Playwright",
   },
   {
     title: "Personal AI Marketplace",
-    description: "A personal collection of Claude AI skills, hooks, and plugins I'm building and experimenting with. Started as a spin-off of an enterprise AI tooling initiative at work — this is where I try things out.",
+    description: "A personal sandbox for experimenting with Claude skills, hooks, and MCP integrations. The groundwork that led me to build an enterprise version from scratch at Vestmark.",
     demo: "",
     github: "https://github.com/alex-gagnon/personal-marketplace",
     stack: "Python · Claude API · Shell/Bash",
   },
   {
     title: "Weather MCP Server",
-    description: "An MCP (Model Context Protocol) server that exposes real-time weather data as a tool for Claude and other AI agents. Built while learning the MCP spec — a practical starting point for understanding agentic tool integrations.",
+    description: "An MCP server exposing real-time weather data as a tool for Claude and other AI agents. A practical exploration of agentic tool design and the MCP spec.",
     demo: "",
     github: "https://github.com/alex-gagnon/weather-mcp",
     stack: "Python · MCP · Anthropic API",
   },
   {
-    title: "Midas",
-    description: "My first AI-powered project — a personal finance review tool that uses AI to analyze and surface insights from financial data. Built to scratch my own itch and get hands-on with LLM integrations outside of a work context.",
-    demo: "",
-    github: "https://github.com/alex-gagnon/Midas",
-    stack: "Python · AI/LLM",
-  },
-  {
     title: "This Portfolio",
-    description: "Built and deployed this site using React, TypeScript, and Material-UI — automated via GitHub Actions CI/CD pipeline to a custom domain. Because engineers should dogfood their own deployment pipelines.",
+    description: "Built with React, TypeScript, and Material-UI. Deployed to a custom domain via GitHub Actions CI/CD.",
     demo: "https://alex-gagnon.com",
     github: "https://github.com/alex-gagnon/simple-portfolio",
-    stack: "React · TypeScript · Material-UI · GitHub Actions",
+    stack: "React · TypeScript · Material-UI · Vite · Vitest · Playwright · GitHub Actions",
   },
 ];

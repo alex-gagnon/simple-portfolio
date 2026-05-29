@@ -21,7 +21,7 @@ describe('Hero', () => {
 
     it('renders both resume download buttons', () => {
         renderHero();
-        expect(screen.getByRole('link', { name: /resume — lead/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /resume — ic/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /resume - lead/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /resume - ic/i })).toBeInTheDocument();
     });
 });

@@ -45,6 +45,7 @@ export const HexGrid = () => {
     const mouse = useRef({ x: -9999, y: -9999 });
     const hexes = useRef<Hex[]>([]);
     const raf = useRef(0);
+    const lastTouchEnd = useRef(0);
     const reducedMotion = typeof window !== 'undefined'
         && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -100,11 +101,18 @@ export const HexGrid = () => {
             raf.current = requestAnimationFrame(animate);
         };
 
-        const onMouseMove = (e: MouseEvent) => { mouse.current = { x: e.clientX, y: e.clientY }; };
+        const onMouseMove = (e: MouseEvent) => {
+            // Ignore synthetic mouse events the browser fires after a touch sequence
+            if (Date.now() - lastTouchEnd.current < 500) return;
+            mouse.current = { x: e.clientX, y: e.clientY };
+        };
         const onTouchMove = (e: TouchEvent) => {
             mouse.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         };
-        const onTouchEnd = () => { mouse.current = { x: -9999, y: -9999 }; };
+        const onTouchEnd = () => {
+            lastTouchEnd.current = Date.now();
+            mouse.current = { x: -9999, y: -9999 };
+        };
 
         resize();
         window.addEventListener('resize', resize);
