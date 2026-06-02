@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Grid, SxProps, Typography } from '@mui/material';
 import { Card } from '../../components';
-import { Hero } from '../../components/Hero/Hero';
-import { Highlights } from '../../components/Highlights/Highlights';
-import { ExperienceTimeline } from '../../components/ExperienceTimeline/ExperienceTimeline';
-import { SkillsGrid } from '../../components/SkillsGrid/SkillsGrid';
-import { ContactForm } from '../../components/ContactForm/ContactForm';
-import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
-import { SocialLinks } from '../../components/SocialLinks/SocialLinks';
+import { Hero } from '../../components/sections/Hero/Hero';
+import { Highlights } from '../../components/sections/Highlights/Highlights';
+import { ExperienceTimeline } from '../../components/sections/ExperienceTimeline/ExperienceTimeline';
+import { SkillsGrid } from '../../components/sections/SkillsGrid/SkillsGrid';
+import { ContactForm } from '../../components/sections/ContactForm/ContactForm';
+import { SectionHeading } from '../../components/ui/SectionHeading/SectionHeading';
+import { SocialLinks } from '../../components/ui/SocialLinks/SocialLinks';
 import { RevealSection } from '../../components';
 import { PROJECTS } from '../../data/projects';
 
