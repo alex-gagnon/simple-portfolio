@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 export const Hero = () => (
     <Box sx={{
@@ -46,31 +46,5 @@ export const Hero = () => (
             Currently leading a team of 11 SDETs at Vestmark, building the tools that eliminate the toil
             between developers and production.
         </Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, position: 'relative', zIndex: 1 }}>
-            <Button variant='outlined' href='#projects' size='large' color='sleepyText'
-                sx={{ fontSize: { xs: 16, md: 18, lg: 20 } }}>
-                View my work
-            </Button>
-            <Button variant='outlined' size='large'
-                href='/Alex_Gagnon_Resume_Leader_Port.docx.pdf'
-                download="Alex_Gagnon_Resume_Engineering_Lead.pdf"
-                sx={{
-                    fontSize: { xs: 16, md: 18, lg: 20 },
-                    color: '#1ba098', borderColor: '#1ba098',
-                    '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
-                }}>
-                Resume - Lead
-            </Button>
-            <Button variant='outlined' size='large'
-                href='/Alex_Gagnon_Resume_IC_Port.docx.pdf'
-                download="Alex_Gagnon_Resume_Senior_IC.pdf"
-                sx={{
-                    fontSize: { xs: 16, md: 18, lg: 20 },
-                    color: '#1ba098', borderColor: 'rgba(27,160,152,0.5)',
-                    '&:hover': { borderColor: '#1ba098', backgroundColor: 'rgba(27,160,152,0.08)' },
-                }}>
-                Resume - IC
-            </Button>
-        </Box>
     </Box>
 );
