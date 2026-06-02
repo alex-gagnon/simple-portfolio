@@ -1,5 +1,4 @@
-[![Prod - Simple Portfolio](https://github.com/alex-gagnon/simple-portfolio/actions/workflows/prod.js.yml/badge.svg)](https://github.com/alex-gagnon/simple-portfolio/actions/workflows/prod.js.yml)
-[![codecov](https://codecov.io/gh/alex-gagnon/simple-portfolio/branch/main/graph/badge.svg)](https://codecov.io/gh/alex-gagnon/simple-portfolio)
+[![Deploy to GitHub Pages](https://github.com/alex-gagnon/simple-portfolio/actions/workflows/prod.js.yml/badge.svg)](https://github.com/alex-gagnon/simple-portfolio/actions/workflows/prod.js.yml)
 
 ## Simple Portfolio
 
@@ -11,7 +10,7 @@ Personal portfolio site built with React 19, TypeScript, and Vite — deployed t
 - **Vite** — build tooling and dev server
 - **Material-UI (MUI) 5** + Emotion — component library and theming
 - **Vitest** + Testing Library — unit and integration tests
-- **gh-pages** — deployment to GitHub Pages
+- **GitHub Actions** — CI and deployment to GitHub Pages
 
 ## Project Structure
 
@@ -27,7 +26,7 @@ src/
 
 ## Getting Started
 
-**Prerequisites:** Node >= 26 (see `.nvmrc`)
+**Prerequisites:** Node >= 24 (see `.nvmrc`)
 
 ```bash
 npm install          # install dependencies
@@ -47,10 +46,10 @@ cp .env.example .env
 
 ## Deployment
 
-On every merge to `main`, GitHub Actions runs tests, builds the project, and deploys to GitHub Pages via `gh-pages`. The custom domain is configured in `public/CNAME`.
+On every merge to `main`, GitHub Actions runs tests, builds the project, and deploys to GitHub Pages using the official `actions/deploy-pages` action. The custom domain is configured in `public/CNAME`.
 
-- **Dev workflow** (`dev.js.yml`): runs on all non-main branches — installs, tests, uploads coverage to Codecov
-- **Prod workflow** (`prod.js.yml`): runs on `main` — same as dev, plus build and deploy
+- **CI workflow** (`dev.js.yml`): runs on pushes to non-main branches and PRs targeting `main` — installs and tests
+- **Deploy workflow** (`prod.js.yml`): runs on `main` — tests, builds, uploads artifact, and deploys to Pages
 
 ## Resources
 
