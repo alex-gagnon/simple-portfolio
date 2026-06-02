@@ -1,7 +1,7 @@
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
-import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
-import { FloatingNav } from './components/FloatingNav/FloatingNav';
+import { Header } from './components/layout/Header/Header';
+import { Footer } from './components/layout/Footer/Footer';
+import { ErrorBoundary } from './components/ui/ErrorBoundary/ErrorBoundary';
+import { FloatingNav } from './components/layout/FloatingNav/FloatingNav';
 import { theme } from './theme';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Outlet } from 'react-router-dom';
