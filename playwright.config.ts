@@ -67,21 +67,23 @@ export default defineConfig({
     {
       name: 'Mobile Chrome Landscape',
       use: { ...devices['Pixel 7 landscape']}
-    },    
+    },
     {
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] },
     },
 
-    /* Test against branded browsers. */
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    },
+    /* Branded browsers are not available in the Playwright Docker image — local only. */
+    ...(!isCI ? [
+      {
+        name: 'Microsoft Edge',
+        use: { ...devices['Desktop Edge'], channel: 'msedge' as const },
+      },
+      {
+        name: 'Google Chrome',
+        use: { ...devices['Desktop Chrome'], channel: 'chrome' as const },
+      },
+    ] : []),
   ],
 
   /* Run your local dev server before starting the tests */

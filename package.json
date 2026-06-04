@@ -31,7 +31,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "npx playwright test"
+    "test:e2e": "npx playwright test",
+    "test:e2e:update-snapshots": "docker build -q --target e2e -t portfolio-e2e . && docker run --rm -v .:/app -v /app/node_modules --ipc=host portfolio-e2e npx playwright test e2e/specs/home.spec.ts --update-snapshots all --workers=1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",

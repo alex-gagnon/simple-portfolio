@@ -49,9 +49,12 @@ test.describe('Accessibility Scans', () => {
   });
 
   // Keyboard navigation
-  // Safari requires OS-level "Full Keyboard Access"; mobile browsers don't use Tab at all
-  test('nav links are reachable by keyboard', async ({ homePage, browserName, isMobile }) => {
-    test.skip(browserName === 'webkit' || !!isMobile, 'Mobile and Safari tab-to-link navigation not applicable');
+  // Safari requires OS-level "Full Keyboard Access"; mobile/Edge headless don't Tab to links
+  test('nav links are reachable by keyboard', async ({ homePage, browserName, isMobile }, testInfo) => {
+    test.skip(
+      browserName === 'webkit' || !!isMobile || testInfo.project.name === 'Microsoft Edge',
+      'Mobile, Safari, and Edge headless tab-to-link navigation not applicable'
+    );
     await homePage.page.keyboard.press('Tab');
     const hasFocus = await homePage.page.evaluate(
       () => document.activeElement !== null && document.activeElement !== document.body

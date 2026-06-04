@@ -20,8 +20,13 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Check out the PR branch itself (not the merge commit) so we can push back
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -33,7 +38,14 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - run: npx playwright install --with-deps
-      - run: npx playwright test
+      - name: Run Playwright tests
+        run: npx playwright test --update-snapshots missing
+      - name: Commit new CI snapshot baselines
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add e2e/specs/home.spec.ts-snapshots/
+          git diff --staged --quiet || (git commit -m "chore: add CI snapshot baselines [skip ci]" && git push)
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
