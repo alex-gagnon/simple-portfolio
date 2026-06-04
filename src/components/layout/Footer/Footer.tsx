@@ -3,8 +3,11 @@ import { Box, Divider, Link, Typography } from '@mui/material';
 import { SocialLinks } from '../../ui/SocialLinks/SocialLinks';
 import { Logo } from '../../ui/Logo/Logo';
 import { NAV_LINKS } from '../../../constants/nav';
+import { useMotion } from '../../../context/MotionContext';
 
-export const Footer = () => (
+export const Footer = () => {
+    const { hoverEnabled } = useMotion();
+    return (
     <Box
         component="footer"
         sx={{
@@ -18,7 +21,7 @@ export const Footer = () => (
         }}
     >
         {/* Logo */}
-        <Link href="#" aria-label="Back to top" sx={{ lineHeight: 0, opacity: 0.9, '&:hover': { opacity: 1 } }}>
+        <Link href="#" aria-label="Back to top" sx={{ lineHeight: 0, opacity: 0.9, ...(hoverEnabled && { '&:hover': { opacity: 1 } }) }}>
             <Logo size={64} />
         </Link>
 
@@ -33,8 +36,8 @@ export const Footer = () => (
                         color: 'rgba(200, 218, 235, 0.6)',
                         fontSize: '0.95rem',
                         letterSpacing: '0.04em',
-                        transition: 'color 0.2s ease',
-                        '&:hover': { color: '#1ba098' },
+                        transition: hoverEnabled ? 'color 0.2s ease' : 'none',
+                        ...(hoverEnabled && { '&:hover': { color: '#1ba098' } }),
                     }}
                 >
                     {label}
@@ -49,21 +52,22 @@ export const Footer = () => (
 
         {/* Bottom row */}
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', gap: { xs: 1, sm: 3 } }}>
-            <Typography sx={{ color: 'rgba(200, 218, 235, 0.35)', fontSize: '0.82rem' }}>
+            <Typography sx={{ color: 'rgba(200, 218, 235, 0.6)', fontSize: '0.82rem' }}>
                 © {new Date().getFullYear()} Alex Gagnon
             </Typography>
             <Link
                 href="mailto:admin@alex-gagnon.com"
                 underline="none"
                 sx={{
-                    color: 'rgba(200, 218, 235, 0.35)',
+                    color: 'rgba(200, 218, 235, 0.6)',
                     fontSize: '0.82rem',
-                    transition: 'color 0.2s ease',
-                    '&:hover': { color: '#1ba098' },
+                    transition: hoverEnabled ? 'color 0.2s ease' : 'none',
+                    ...(hoverEnabled && { '&:hover': { color: '#1ba098' } }),
                 }}
             >
                 admin@alex-gagnon.com
             </Link>
         </Box>
     </Box>
-);
+    );
+};

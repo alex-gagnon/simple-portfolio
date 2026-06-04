@@ -1,16 +1,19 @@
-import { AppBar, Box, Button, Container, Link, Menu, MenuItem, Toolbar, Typography, IconButton } from '@mui/material';
+import { AppBar, Box, Button, Container, Link, Menu, MenuItem, Toolbar, Tooltip, Typography, IconButton } from '@mui/material';
 import React from 'react';
 import { useScrolled } from '../../../hooks/useScrolled';
 import { useActiveSection } from '../../../hooks/useActiveSection';
 import { Logo } from '../../ui/Logo/Logo';
 import { SocialLinks } from '../../ui/SocialLinks/SocialLinks';
 import { NAV_LINKS, SECTION_IDS } from '../../../constants/nav';
+import { useMotion } from '../../../context/MotionContext';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 const buttonFontSize = 18;
 
 export const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const scrolled = useScrolled();
     const activeSection = useActiveSection(SECTION_IDS);
+    const { hoverEnabled, toggleHover } = useMotion();
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
@@ -68,7 +71,7 @@ export const Header = () => {
                         >
                             {NAV_LINKS.map(({ label, href }) => (
                                 <MenuItem key={label} onClick={handleCloseNavMenu}
-                                    sx={{ '&:hover': { backgroundColor: 'rgba(27,160,152,0.12)' } }}>
+                                    sx={{ ...(hoverEnabled && { '&:hover': { backgroundColor: 'rgba(27,160,152,0.12)' } }) }}>
                                     <Link href={href} underline="none"
                                         sx={{ color: '#e8eef4', width: '100%', fontSize: '1.1rem' }}>
                                         {label}
@@ -96,8 +99,8 @@ export const Header = () => {
                                         color: isActive ? '#1ba098' : 'rgba(200, 218, 235, 0.75)',
                                         fontWeight: isActive ? 700 : 400,
                                         position: 'relative',
-                                        transition: 'color 0.2s ease',
-                                        '&:hover': { color: '#1ba098' },
+                                        transition: hoverEnabled ? 'color 0.2s ease' : 'none',
+                                        ...(hoverEnabled && { '&:hover': { color: '#1ba098' } }),
                                         '&::after': {
                                             content: '""',
                                             position: 'absolute',
@@ -121,6 +124,22 @@ export const Header = () => {
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <SocialLinks iconSize={30} />
                     </Box>
+
+                    <Tooltip title={hoverEnabled ? 'Disable hover effects' : 'Enable hover effects'}>
+                        <IconButton
+                            data-testid='toggleHoverTheme'
+                            onClick={toggleHover}
+                            aria-label={hoverEnabled ? 'Disable hover effects' : 'Enable hover effects'}
+                            size="small"
+                            sx={{ ml: 1 }}
+                        >
+                            <AutoAwesomeIcon sx={{
+                                fontSize: 22,
+                                color: hoverEnabled ? '#f0c050' : 'rgba(200, 218, 235, 0.3)',
+                                transition: 'color 0.2s ease',
+                            }} />
+                        </IconButton>
+                    </Tooltip>
                 </Toolbar>
             </Container>
         </AppBar>

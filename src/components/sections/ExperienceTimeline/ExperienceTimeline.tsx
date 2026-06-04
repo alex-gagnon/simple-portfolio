@@ -50,7 +50,7 @@ export const ExperienceTimeline = () => (
                                         {job.company}
                                     </Typography>
                                 </Box>
-                                <Typography sx={{ color: 'rgba(200,218,235,0.5)', fontSize: { xs: '0.875rem', md: '0.95rem' }, mb: 1.5 }}>
+                                <Typography sx={{ color: 'rgba(200,218,235,0.65)', fontSize: { xs: '0.875rem', md: '0.95rem' }, mb: 1.5 }}>
                                     {job.period}
                                 </Typography>
                                 <Typography variant='body1' sx={{ color: 'rgba(200,218,235,0.8)' }}>

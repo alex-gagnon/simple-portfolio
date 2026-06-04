@@ -6,11 +6,13 @@ import { theme } from './theme';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { AuroraBackground, HexGrid } from './components';
+import { MotionProvider } from './context/MotionContext';
 
 
 const Portfolio = () => {
     return (
         <ErrorBoundary>
+            <MotionProvider>
             <ThemeProvider theme={theme}>
                 <AuroraBackground />
                 <HexGrid />
@@ -27,6 +29,7 @@ const Portfolio = () => {
                 </Container>
                 <Footer />
             </ThemeProvider>
+            </MotionProvider>
         </ErrorBoundary>
     );
 }

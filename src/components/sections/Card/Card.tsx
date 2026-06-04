@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useMotion } from '../../../context/MotionContext';
 import {
     Card as MuiCard,
     CardContent,
@@ -27,6 +28,7 @@ export const Card: FC<Project> = ({
     stack,
     inProgress,
 }: Project) => {
+    const { hoverEnabled } = useMotion();
     const stackItems = stack.split(' · ');
 
     return (
@@ -39,19 +41,22 @@ export const Card: FC<Project> = ({
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                transition: 'all 0.3s ease',
+                transition: hoverEnabled ? 'all 0.3s ease' : 'none',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
-                '&:hover': {
-                    transform: 'translateY(-6px)',
-                    boxShadow: '0 20px 48px rgba(0, 0, 0, 0.5)',
-                    border: '1px solid rgba(27, 160, 152, 0.35)',
-                },
+                ...(hoverEnabled && {
+                    '&:hover': {
+                        transform: 'translateY(-6px)',
+                        boxShadow: '0 20px 48px rgba(0, 0, 0, 0.5)',
+                        border: '1px solid rgba(27, 160, 152, 0.35)',
+                    },
+                }),
             }}
         >
             <CardHeader
                 title={
                     <Typography
                         variant="h6"
+                        component="h3"
                         sx={{
                             color: '#f0c050',
                             fontWeight: 600,
