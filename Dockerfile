@@ -1,11 +1,8 @@
 # ── deps ─────────────────────────────────────────────────────────────────────
 FROM node:24-bookworm-slim AS deps
 WORKDIR /app
-# Copy only package.json — omitting the Windows-generated lockfile so npm
-# resolves platform-specific optional deps (e.g. rollup-linux-x64-gnu) fresh
-# for the container OS instead of skipping them.
-COPY package.json ./
-RUN npm install
+COPY package*.json ./
+RUN npm ci
 
 # ── dev ───────────────────────────────────────────────────────────────────────
 # docker build --target dev -t portfolio-dev .
@@ -33,8 +30,8 @@ RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends nodejs && \
     rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-COPY package.json ./
-RUN npm install
+COPY package*.json ./
+RUN npm ci
 COPY . .
 ENV CI=true
 CMD ["npm", "run", "test:e2e"]
