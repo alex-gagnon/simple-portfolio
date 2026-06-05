@@ -1,10 +1,13 @@
 import React from 'react';
+import { useMotion } from '../../../context/MotionContext';
 import { Box, Chip, Grid, Paper, Typography } from '@mui/material';
 import { SectionHeading } from '../../ui/SectionHeading/SectionHeading';
 import { RevealSection } from '../../ui/RevealSection/RevealSection';
 import { SKILLS } from '../../../data/skills';
 
-export const SkillsGrid = () => (
+export const SkillsGrid = () => {
+    const { hoverEnabled } = useMotion();
+    return (
     <Box>
         <RevealSection>
             <SectionHeading>Skills & Tools</SectionHeading>
@@ -21,14 +24,16 @@ export const SkillsGrid = () => (
                             border: '1px solid rgba(255, 255, 255, 0.07)',
                             borderLeft: '3px solid #1ba098',
                             boxShadow: '0 4px 24px rgba(0, 0, 0, 0.3)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': {
-                                backgroundColor: 'rgba(27, 160, 152, 0.08)',
-                                border: '1px solid rgba(27, 160, 152, 0.25)',
-                                borderLeft: '3px solid #1ba098',
-                            },
+                            transition: hoverEnabled ? 'all 0.3s ease' : 'none',
+                            ...(hoverEnabled && {
+                                '&:hover': {
+                                    backgroundColor: 'rgba(27, 160, 152, 0.08)',
+                                    border: '1px solid rgba(27, 160, 152, 0.25)',
+                                    borderLeft: '3px solid #1ba098',
+                                },
+                            }),
                         }}>
-                            <Typography variant='h6' sx={{
+                            <Typography variant='h6' component='h3' sx={{
                                 color: '#f0c050',
                                 fontWeight: 'bold',
                                 mb: 2,
@@ -53,4 +58,5 @@ export const SkillsGrid = () => (
             ))}
         </Grid>
     </Box>
-);
+    );
+};

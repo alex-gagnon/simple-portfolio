@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useMotion } from '../../../context/MotionContext';
 
 const HEX_SIZE = 46;
 const GAP = 2;
@@ -48,6 +49,7 @@ export const HexGrid = () => {
     const lastTouchEnd = useRef(0);
     const reducedMotion = typeof window !== 'undefined'
         && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const { hoverEnabled } = useMotion();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -117,7 +119,7 @@ export const HexGrid = () => {
         resize();
         window.addEventListener('resize', resize);
 
-        if (reducedMotion) {
+        if (reducedMotion || !hoverEnabled) {
             drawStatic();
         } else {
             window.addEventListener('mousemove', onMouseMove);
@@ -133,7 +135,7 @@ export const HexGrid = () => {
             window.removeEventListener('touchmove', onTouchMove);
             window.removeEventListener('touchend', onTouchEnd);
         };
-    }, [reducedMotion]);
+    }, [reducedMotion, hoverEnabled]);
 
     return (
         <canvas

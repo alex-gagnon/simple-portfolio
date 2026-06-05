@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, container } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { AuroraBackground } from './AuroraBackground';
 
 describe('AuroraBackground', () => {

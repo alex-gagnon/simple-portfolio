@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, CircularProgress, Grid, Paper, TextField, Typography } from '@mui/material';
 
-const FORMSPARK_URL = import.meta.env.VITE_FORMSPARK_URL as string;
+const FORMSPARK_URL = (import.meta.env.VITE_FORMSPARK_URL as string) || 'https://submit-form.com/not-configured';
 
 const fieldSx = {
     '& .MuiOutlinedInput-root': {
@@ -78,7 +78,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <Paper component="form" onSubmit={handleSubmit} sx={{
+        <Paper component="form" onSubmit={handleSubmit} noValidate sx={{
             p: { xs: 3, md: 4 },
             backgroundColor: 'rgba(255,255,255,0.04)',
             backdropFilter: 'blur(12px)',
