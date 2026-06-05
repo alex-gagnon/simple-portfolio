@@ -37,15 +37,11 @@ test.describe('Mobile Navigation', () => {
 
 test.describe('Accessibility Scans', () => {
   test('homepage should pass basic WCAG rules', async ({ homePage }) => {
-    // Let reveal-section transitions finish before scanning — on Mobile Chrome the
-    // IntersectionObserver fires immediately and axe can catch elements mid-opacity-fade
-    await homePage.page.waitForTimeout(1000);
-
-    const accessibilityScaneResults = await new AxeBuilder({ page: homePage.page })
+    const accessibilityScanResults = await new AxeBuilder({ page: homePage.page })
       .withTags(['wcag2', 'wcag2aa', 'best-practice'])
       .analyze();
 
-    expect(accessibilityScaneResults.violations).toEqual([]);
+    expect(accessibilityScanResults.violations).toEqual([]);
   });
 
   // Keyboard navigation
@@ -65,6 +61,9 @@ test.describe('Accessibility Scans', () => {
 
 
 test.describe('Visual Regressions - Dynamic Content', () => {
+  // Snapshots are Linux-only baselines — skip on local Windows/macOS where
+  // font rendering differs. Generate via: npm run test:e2e:update-snapshots
+  test.skip(!process.env.CI, 'Visual regression tests only run in the Linux Docker/CI environment');
   // Double-navigation (homePage + scrollPage) can make Firefox slow under parallelism
   test.setTimeout(90_000);
   test('homepage layout snapshot matches baseline', async ({ homePage, scrollPage }) => {

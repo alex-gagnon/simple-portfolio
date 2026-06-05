@@ -22,6 +22,10 @@ export const theme = createTheme({
         },
     },
     palette: {
+        text: {
+            primary: '#e8eef4',   // 15:1 contrast on the dark background
+            secondary: '#9db4c8', // ~9:1 — used for captions, helper text, etc.
+        },
         sleepyText: palette.augmentColor({
             color: {
                 main: '#e8eef4'

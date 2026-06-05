@@ -28,9 +28,9 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* 1 local retry handles transient parallelism flakes; CI uses 2 for network noise */
   retries: process.env.CI ? 2 : 1,
-  /* Limit parallelism to 4 locally — unbounded workers cause snapshot flakiness
-     under heavy contention; CI already uses 1. */
-  workers: process.env.CI ? 1 : 4,
+  /* Run one worker per browser project so all projects execute in parallel.
+     Snapshot generation commands override this with --workers=1 for rendering stability. */
+  workers: 6,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
