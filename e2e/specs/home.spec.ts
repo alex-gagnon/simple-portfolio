@@ -12,7 +12,12 @@ test.describe('Home Page', () => {
   test('floating nav appears after scrolling and returns to top on click', async ({ homePage }) => {
     await expect(homePage.floatingNav).toHaveCSS('opacity', '0');
 
-    await homePage.page.evaluate(() => window.scrollBy(0, 300));
+    await homePage.page.evaluate(() => {
+      window.scrollBy(0, 300);
+      // webkit headless doesn't always fire the scroll event from programmatic
+      // scrolling — dispatch it explicitly so useScrolled picks up the change
+      window.dispatchEvent(new Event('scroll'));
+    });
     await expect(homePage.floatingNav).toHaveCSS('opacity', '1');
 
     await homePage.clickFloatingNav();
